@@ -1,3 +1,5 @@
+"use strict";
+
 (() => {
     document.querySelector("#testButton").addEventListener("click", handleClick);
 

@@ -1,0 +1,23 @@
+{
+  "name": "mact6340",
+  "version": "1.0.0",
+  "description": "A personal NFT mint for an artist",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/courtneycrews/MACT6340.git"
+  },
+  "author": "Courtney Crews",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/courtneycrews/MACT6340/issues"
+  },
+  "homepage": "https://github.com/courtneycrews/MACT6340#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
