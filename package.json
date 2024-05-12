@@ -19,5 +19,8 @@
   "homepage": "https://github.com/courtneycrews/MACT6340#readme",
   "devDependencies": {
     "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
   }
 }
