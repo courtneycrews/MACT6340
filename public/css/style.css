@@ -9,6 +9,6 @@ body {
   font-family: "Reddit Sans Condensed", sans-serif;
 }
 
-  div {
-    border: 1px solid darkolivegreen;
-  }
+  .custom-footer {
+    background-color: darkolivegreen;
+}
