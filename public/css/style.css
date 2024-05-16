@@ -10,8 +10,26 @@ body {
   background-color: linen; /* Choose your desired background color */
 }
 
+body {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  color: rgb(var(--bs-tertiary-color-rgb));
+}
+
 .text-small {
   font-size: 85%;
+}
+
+/* Thin out the marketing headings */
+/* rtl:begin:remove */
+.featurette-heading {
+  letter-spacing: -.05rem;
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
 }
 
   .custom-footer {
