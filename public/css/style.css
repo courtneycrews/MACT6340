@@ -1,12 +1,46 @@
-body {
-  font-family: "Reddit Sans Condensed", sans-serif;
-  background-color: linen; 
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    font-family: "Reddit Sans Condensed", sans-serif;
+    background-color: linen; /* Choose your desired background color */
+    margin: 0; /* Reset default margin */
+    padding-top: 0; /* Ensure no padding at the top */
+    padding-bottom: 0; /* Ensure no padding at the bottom */
+    color: rgb(var(--bs-tertiary-color-rgb));
+  }
+
+  .hero-container {
+    position: relative;
+    height: 550px;
+    background-image: url('./images/hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-align: center;
+  }
+
+.hero-text {
+  padding: 20px;
 }
 
-body {
-  padding-top: 0;
-  padding-bottom: 0;
-  color: rgb(var(--bs-tertiary-color-rgb));
+hr.spacer {
+  margin-top: 60px; /* Adjust this value to increase/decrease the spacing */
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    height: 300px;
+  }
 }
 
 .text-small {
@@ -31,7 +65,26 @@ body {
   z-index: 1000;
 }
 
+.navbar-container .nav-link {
+  margin: 0; /* Remove default margin */
+  padding: 10px 15px; /* Adjust padding as needed */
+}
 
-  .custom-footer {
-    background-color: rosybrown;
+.custom-button {
+  background-color: transparent; /* Custom background color */
+  color: black; /* Custom text color */
+  border: 2px solid rosybrown; /* Remove border */
+  padding: 10px 10px; /* Custom padding */
+  font-size: 16px; /* Custom font size */
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.custom-button:hover {
+  background-color: rosybrown; /* Darker background on hover */
+  color: white;
+}
+
+.custom-footer {
+  background-color: rosybrown;
 }
