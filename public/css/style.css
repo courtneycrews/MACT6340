@@ -1,18 +1,11 @@
-html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-
 body {
   font-family: "Reddit Sans Condensed", sans-serif;
-  background-color: linen; /* Choose your desired background color */
+  background-color: linen; 
 }
 
 body {
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+  padding-top: 0;
+  padding-bottom: 0;
   color: rgb(var(--bs-tertiary-color-rgb));
 }
 
@@ -31,6 +24,13 @@ body {
     margin-top: 7rem;
   }
 }
+
+.navbar-container {
+  background-color: transparent !important;
+  width: 100%;
+  z-index: 1000;
+}
+
 
   .custom-footer {
     background-color: rosybrown;
