@@ -7,45 +7,35 @@ html {
 
   body {
     font-family: "Reddit Sans Condensed", sans-serif;
-    background-color: linen; /* Choose your desired background color */
-    margin: 0; /* Reset default margin */
-    padding-top: 0; /* Ensure no padding at the top */
-    padding-bottom: 0; /* Ensure no padding at the bottom */
+    background-color: seashell; /* Choose your desired background color */
     color: rgb(var(--bs-tertiary-color-rgb));
   }
 
-  .hero-container {
-    position: relative;
-    height: 550px;
-    background-image: url('./images/hero-image.jpg');
+  .hero-image {
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
   }
 
-.hero-text {
-  padding: 20px;
-}
-
-hr.spacer {
-  margin-top: 60px; /* Adjust this value to increase/decrease the spacing */
-  border: none;
-}
-
-@media (max-width: 768px) {
-  .hero-container {
-    height: 300px;
+  hr.spacer {
+    border: none;
+    height: var(--spacer-height, 50px); /* Default height */
+    margin: 0;
   }
-}
-
-.text-small {
-  font-size: 85%;
-}
+  
+  hr.spacer-double {
+    border: none;
+    height: calc(var(--spacer-height, 50px) * 2); /* Double the height */
+  }
+  
+  hr.spacer-triple {
+    border: none;
+    height: calc(var(--spacer-height, 50px) * 3); /* Triple the height */
+  }
+  
 
 /* Thin out the marketing headings */
 /* rtl:begin:remove */
@@ -57,17 +47,6 @@ hr.spacer {
   .featurette-heading {
     margin-top: 7rem;
   }
-}
-
-.navbar-container {
-  background-color: transparent !important;
-  width: 100%;
-  z-index: 1000;
-}
-
-.navbar-container .nav-link {
-  margin: 0; /* Remove default margin */
-  padding: 10px 15px; /* Adjust padding as needed */
 }
 
 .custom-button {
@@ -86,4 +65,8 @@ hr.spacer {
 
 .custom-footer {
   background-color: rosybrown;
+}
+
+.custom-border {
+  border-bottom: 1px solid white; /* white border */
 }

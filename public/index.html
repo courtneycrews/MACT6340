@@ -17,141 +17,95 @@
 
 
     <style>
+      html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .hero-container {
+      width: 100vw;
+      height: 500px;
+      overflow: hidden;
+      position: absolute;
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-      body, html {
-        margin: 0;
-        padding: 0;
-      }
+    .navbar {
+      position: static;
+      top: 0;
+      width: 100%;
+      background-color: transparent;
+      z-index: 10;
+    }
 
-      /* Hero container */
-      .hero-container {
-        position: relative;
-        height: 550px;
-        background-image: url('./images/hero-image.jpg');
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: flext-start;
-        color: black;
-        text-align: center;
-      }
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: white;
+    }
 
-      .navbar-container {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-      }
+    .navbar .nav-link:hover,
+    .navbar .navbar-brand:hover {
+      color: sienna;
+    }
 
-      .navbar {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0.5rem 1rem;
-        box-sizing: border-box;
-      }
-
-      .nav-left {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-left ul {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-      }
-
-      .nav-left li {
-        list-style: none;
-      }
-
-      .nav-left a {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-right {
-        display: flex;
-        align-items: center;
-      }
-
-      .nav-right .btn {
-        margin-top: 0 px;
-      }
-
-      /* Hero text */
-      .hero-text {
-        padding: 20px;
-        margin-top: auto;
-      }
-
-      hr.spacer {
-        margin-top: 60px; /* Adjust this value to increase/decrease the spacing */
-        border: none;
-      }
-
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .hero-container {
-          height: 300px;
-        }
-        .navbar {
-                flex-direction: column; /* Stack the navbar items vertically */
-                align-items: flex-start; /* Align items to the start */
-            }
-            .nav-left,
-            .nav-right {
-                width: 100%; /* Make the nav sections full width */
-                justify-content: space-between; /* Space out items in each section */
-            }
-            .nav-right {
-                justify-content: flex-end; /* Align the button to the right */
-            }
-            .nav-left a,
-            .nav-right .btn {
-                padding-right: 1rem;
-            }    
-      }
-      
+    /* Ensure the body content starts below the navbar */
+    .content {
+      padding-top: 56px; /* Adjust this if your navbar height changes */
+    }
     </style>
   </head>
 
   <body>
-    <div class="hero-container">
-      <div class="container navbar-container">
-        <div class="navbar">
-          <div class="nav-left">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-          </a>
+    <body>
+      <div class="hero-container">
+        <img class="hero-image" src="./images/hero-image.jpg" alt="Hero Image">
   
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="index.html" class="nav-link px-2 text-black">Home</a></li>
-            <li><a href="featured.html" class="nav-link px-2 text-black">Featured</a></li>
-            <li><a href="gallery.html" class="nav-link px-2 text-black">Gallery</a></li>
-            <li><a href="contact.html" class="nav-link px-2 text-black">Contact</a></li>
-          </ul>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container">
+            <a class="navbar-brand" href="#">CourtneyMichelle</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="featured.html">Featured</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+              </ul>
+              <div class="text-end">
+                <button type="button" class="btn btn-outline-success">Connect Wallet</button>
+              </div>
+            </div>
           </div>
-  
-          <div class="nav-right">
-            <button type="button" class="btn custom-button">Connect Wallet</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-text">
-          <h1>Series Title</h1>
-          <p>Brief description of the series/tagline</p>
-          <button class="btn custom-button">View Series</button>
-        </div>
+        </nav>
       </div>
 
       <div class="container marketing">
-        <hr class="spacer">
+        <hr class="spacer-triple">
+        <section>
+          <div id="home-headline" class="beginning pt-5 m-2 text-dark text-center">
+            <h1>Featured Series Title</h1>
+            <p>featured series description</p>
+          </div>
+        </section>
+        <hr class="spacer-double">
 
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
@@ -175,7 +129,7 @@
           </div>
         </div>
     
-        <hr class="spacer">
+        <hr class="spacer-triple">
 
         <div class="container">
           <footer class="py-5 custom-footer">
