@@ -21,10 +21,7 @@
         console.log("Thank you for your message.");
         let obj = {
             sub: "New Message from Reader",
-            txt: `${document.querySelector("#contact-first").value}
-            ${document.querySelector("#contact-last").value} sent a message that reads
-            ${document.querySelector("#contact-msg").value}. They're email address is
-            ${document.querySelector("#contact-email-addr").value}`,
+            txt: `${document.querySelector("#contact-first").value} ${document.querySelector("#contact-last").value} sent a message that reads: ${document.querySelector("#contact-msg").value}. They're email address is ${document.querySelector("#contact-email-addr").value}`,
         };
 
         fetch("/mail", {
