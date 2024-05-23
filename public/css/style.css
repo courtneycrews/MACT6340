@@ -7,7 +7,7 @@ html {
 
   body {
     font-family: "Reddit Sans Condensed", sans-serif;
-    background-color: seashell; /* Choose your desired background color */
+    background-color: #EEECE6; /* Choose your desired background color */
     color: rgb(var(--bs-tertiary-color-rgb));
   }
 
@@ -22,18 +22,18 @@ html {
 
   hr.spacer {
     border: none;
-    height: var(--spacer-height, 50px); /* Default height */
+    height: var(--spacer-height, 40px); /* Default height */
     margin: 0;
   }
   
   hr.spacer-double {
     border: none;
-    height: calc(var(--spacer-height, 50px) * 2); /* Double the height */
+    height: calc(var(--spacer-height, 40px) * 2); /* Double the height */
   }
   
   hr.spacer-triple {
     border: none;
-    height: calc(var(--spacer-height, 50px) * 3); /* Triple the height */
+    height: calc(var(--spacer-height, 40px) * 3); /* Triple the height */
   }
   
 
@@ -50,7 +50,7 @@ html {
 }
 
 .custom-button {
-    background-color: sienna; /* Custom background color */
+    background-color: saddlebrown; /* Custom background color */
     color: white; /* Custom text color */
     padding: 6px 12px; /* Custom padding */
     font-size: 16px; /* Custom font size */
@@ -65,11 +65,11 @@ html {
 
   .custom-nav-button {
     background-color: transparent; /* Custom background color */
-    color: sienna; /* Custom text color */
+    color: saddlebrown; /* Custom text color */
     padding: 6px 12px; /* Custom padding */
     font-size: 16px; /* Custom font size */
     border-radius: 8px; /* Rounded corners */
-    border: 1px solid sienna;
+    border: 1px solid saddlebrown;
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
   }
 
@@ -93,7 +93,7 @@ html {
   height: 100px;
   padding-top: 8px;
   padding-bottom: 20px;
-  background-color: darkgrey;
+  background-color: silver;
 }
 
 /* Apply white color to specific SVG icons by class */
