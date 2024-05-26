@@ -5,18 +5,31 @@ dotenv.config();
 
 const app = express();
 const port = 3000;
+app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.static("public"));
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
+app.get("/index", (req, res) => {
+  res.render("index.ejs");
+});
+
+app.get("/featured", (req, res) => {
+  res.render("featured.ejs");
+});
+
+app.get("/gallery", (req, res) => {
+  res.render("gallery.ejs");
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact.ejs");
+});
 
 app.post("/mail", async (req, res) => {
   await utils
   .sendMessage(req.body.sub, req.body.txt)
   .then(() => {
-    res.send({ result: "success" });
+    res.send({ result: "Message has been sent!" });
   })
   .catch(() => {
     res.send({ result: "failure" });
