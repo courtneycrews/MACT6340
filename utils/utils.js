@@ -20,7 +20,7 @@ export async function sendMessage(sub, txt) {
     });   
     let message = {
         from: process.env.MESSAGE_FROM,
-        to: 'courtneymichelle.cc@gmail.com',  // process.env.MESSAGE_TO,
+        to: process.env.MESSAGE_TO, 
         subject: sub,
         text: txt,
     };
