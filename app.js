@@ -2,7 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import * as utils from "./utils/utils.js";
 dotenv.config();
+import * as db from './utils/database.js';
 let data = ["Project 1", "Project 2", "Project 3"];
+let projects = [];
 
 const app = express();
 const port = 3000;
@@ -10,12 +12,20 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.render("index.ejs");
+app.get("/", async (req, res, next) => {
+  await db
+  .connect()
+  .then(async() => {
+    //query the database for project records
+    projects = await db.getAllProjects();
+    console.log(projects);
+    res.render("index.ejs");
+  })
+  .catch(next);
 });
 
-app.get("/gallery", (req, res) => {
-  res.render("gallery.ejs", { projectArray: data });
+app.get("/projects", (req, res) => {
+  res.render("gallery.ejs", { data: projects });
 });
 
 app.get("/artwork/:id", (req, res) => {
