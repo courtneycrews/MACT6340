@@ -24,8 +24,9 @@ app.get("/", async (req, res, next) => {
   .catch(next);
 });
 
-app.get("/projects", (req, res) => {
-  res.render("gallery.ejs", { data: projects });
+app.get("/gallery", (req, res) => {
+  console.log(projects);
+  res.render("gallery.ejs", { projectArray: projects });
 });
 
 app.get("/artwork/:id", (req, res) => {

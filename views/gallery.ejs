@@ -23,7 +23,7 @@
         <% projectArray.forEach((item, index) => { %> 
      
             <div>
-                <%= item %>
+                <%- include('projectCard', {ident: item.id, image: item.image_url, name: item.project_name}); %>
             </div>
         <% }); %>
 
