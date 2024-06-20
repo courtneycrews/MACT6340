@@ -12,7 +12,7 @@ class Particle {
 
     constructor(effect) {
         this.effect = effect;
-        this.radius = Math.floor(Math.random() * 15 + 10);
+        this.radius = Math.floor(Math.random() * 20 + 15);
         this.buffer = this.radius * 4;
         this.x = this.radius + Math.random() * (this.effect.width - this.radius * 2);
         this.y = this.radius + Math.random() * (this.effect.height - this.radius * 2);
@@ -21,6 +21,7 @@ class Particle {
         this.pushX = 0;
         this.pushY = 0;
         this.friction = 0.9;
+        this.margin = 20;
     }
 
     draw(context) {
@@ -30,53 +31,68 @@ class Particle {
     }
 
     update(){
-        if (this.effect.mouse.pressed){
-            const dx = this.x - this.effect.mouse.x;
-            const dy = this.y - this.effect.mouse.y;
-            const distance = Math.hypot(dx, dy);
-            const force = (distance/this.effect.mouse.radius);
-            if (distance < this.effect.mouse.radius){
-                const angle = Math.atan2(dy, dx);
-                this.pushX -= Math.cos(angle) * force;
-                this.pushY -= Math.sin(angle) * force;
-            }
-        }
+        const dx = this.x - this.effect.mouse.x;
+        const dy = this.y - this.effect.mouse.y;
+        const distance = Math.hypot(dx, dy);
+        const force = (distance/this.effect.mouse.radius);
+        if (distance < this.effect.mouse.radius){
+            const angle = Math.atan2(dy, dx);
+            this.pushX -= Math.cos(angle) * force;
+            this.pushY -= Math.sin(angle) * force;
+    }
 
         this.x += (this.pushX *= this.friction) + this.vx;
         this.y += (this.pushY *= this.friction) + this.vy;
 
-
-        // Calculate distance from the canvas center
-    const centerX = this.effect.width / 2;
-    const centerY = this.effect.height / 2;
-    const distanceToCenter = Math.hypot(this.x - centerX, this.y - centerY);
-
-    // Set a radius for the circular boundary (e.g., 1/3 of canvas width)
-    const circularRadius = this.effect.width / 3;
-
-    // If particle exceeds the circular boundary, adjust its position
-    if (distanceToCenter > circularRadius - this.radius) {
-        // Calculate angle to center
-        const angleToCenter = Math.atan2(centerY - this.y, centerX - this.x);
-
-        // Move particle back inside the circular boundary
-        this.x = centerX - Math.cos(angleToCenter) * (circularRadius - this.radius);
-        this.y = centerY - Math.sin(angleToCenter) * (circularRadius - this.radius);
-
-        // Reflect velocity based on angle
-        const normalAngle = Math.atan2(this.vy, this.vx);
-        const reflectionAngle = 2 * angleToCenter - normalAngle;
-        const speed = Math.hypot(this.vx, this.vy);
-        this.vx = Math.cos(reflectionAngle) * speed;
-        this.vy = Math.sin(reflectionAngle) * speed;
-    }
+        // Check for collisions with the inner boundary (considering the margin)
+        if (this.x - this.radius < this.margin) {
+            this.x = this.radius + this.margin;
+            this.vx *= -1;
+        }
+        if (this.x + this.radius > this.effect.width - this.margin) {
+            this.x = this.effect.width - this.radius - this.margin;
+            this.vx *= -1;
+        }
+        if (this.y - this.radius < this.margin) {
+            this.y = this.radius + this.margin;
+            this.vy *= -1;
+        }
+        if (this.y + this.radius > this.effect.height - this.margin) {
+            this.y = this.effect.height - this.radius - this.margin;
+            this.vy *= -1;
+        }
     }
 
-reset() {
-    this.x = this.radius + Math.random() * (this.effect.width - this.radius * 2);
-    this.y = this.radius + Math.random() * (this.effect.height - this.radius * 2);
-    this.color = particleColors[Math.floor(Math.random() * particleColors.length)]; // Reset color
-}
+    //     // Calculate distance from the canvas center
+    // const centerX = this.effect.width / 2;
+    // const centerY = this.effect.height / 2;
+    // const distanceToCenter = Math.hypot(this.x - centerX, this.y - centerY);
+
+    // // Set a radius for the circular boundary (e.g., 1/3 of canvas width)
+    // const circularRadius = this.effect.width / 4;
+
+    // // If particle exceeds the circular boundary, adjust its position
+    // if (distanceToCenter > circularRadius - this.radius) {
+    //     // Calculate angle to center
+    //     const angleToCenter = Math.atan2(centerY - this.y, centerX - this.x);
+
+    //     // Move particle back inside the circular boundary
+    //     this.x = centerX - Math.cos(angleToCenter) * (circularRadius - this.radius);
+    //     this.y = centerY - Math.sin(angleToCenter) * (circularRadius - this.radius);
+
+    //     // Reflect velocity based on angle
+    //     const normalAngle = Math.atan2(this.vy, this.vx);
+    //     const reflectionAngle = 2 * angleToCenter - normalAngle;
+    //     const speed = Math.hypot(this.vx, this.vy);
+    //     this.vx = Math.cos(reflectionAngle) * speed;
+    //     this.vy = Math.sin(reflectionAngle) * speed;
+    // }
+    // }
+
+    reset() {
+        this.x = this.radius + this.margin + Math.random() * (this.effect.width - this.radius * 2 - this.margin * 2);
+        this.y = this.radius + this.margin + Math.random() * (this.effect.height - this.radius * 2 - this.margin * 2);
+    }
 }
 
 class Effect {
@@ -92,7 +108,6 @@ class Effect {
         this.mouse = {
             x: 0,
             y: 0,
-            pressed: false,
             radius: 200,
         }
 
@@ -100,20 +115,11 @@ class Effect {
             this.resize(e.target.window.innerWidth, e.target.window.innerHeight)
         });
         window.addEventListener('mousemove', e => {
-            if (this.mouse.pressed){
                 this.mouse.x = e.x;
                 this.mouse.y = e.y;
-            }
-        });
-        window.addEventListener('mousedown', e=> {
-            this.mouse.pressed = true;
-            this.mouse.x = e.x;
-            this.mouse.y = e.y;
-        });
-        window.addEventListener('mouseup', e => {
-            this.mouse.pressed = false;
         });
     }
+    
     createParticles(){
         for (let i = 0; i < this.numberOfParticles; i++){
             this.particles.push(new Particle(this));
@@ -151,11 +157,11 @@ class Effect {
         this.canvas.height = height;
         this.width = width;
         this.height = height;
-        this.context.fillStyle = 'white';
-        this.context.strokeStyle = 'white';
+        this.context.fillStyle = 'black';
+        this.context.strokeStyle = 'black';
         this.particles.forEach(particle => {
             particle.reset();
-        })
+        });
     }
 }
 const effect = new Effect(canvas, ctx);

@@ -114,7 +114,7 @@ html {
 
 .custom-button:hover {
     background-color: black; /* Lighter background on hover */
-    color: white; /* Change text color on hover */
+    color: whitesmoke; /* Change text color on hover */
   }
 
   .custom-nav-button {
@@ -128,8 +128,8 @@ html {
   }
 
 .custom-nav-button:hover {
-    background-color: white; /* Lighter background on hover */
-    color: black; /* Change text color on hover */
+    background-color: cornflowerblue; /* Lighter background on hover */
+    color: whitesmoke; /* Change text color on hover */
   }
 
 .custom-border-top {

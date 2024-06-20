@@ -29,7 +29,7 @@
 
     .hero-container {
       width: 100vw;
-      height: 600px;
+      height: 550px;
       overflow: hidden;
       position: relative;
       display: flex;
@@ -38,13 +38,22 @@
     }
 
     #canvas1 {
-      width: 100%;
-      height: 100%;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      filter: blur(5px) contrast(15);
+    background: whitesmoke;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(7px) contrast(15);
+    z-index: 1;
+   }
+
+    .hero-text {
+    color: white;
+    position: relative;
+    z-index: 10; /* Ensure hero text is above the canvas */
+    text-align: center;
     }
 
     .featurette {
@@ -132,17 +141,18 @@
   <div class="hero-container">
     <canvas id="canvas1"></canvas>
     <section class="py-5 text-center container">
+      <div class="hero-text">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="display-5 dm-serif-text-regular">Featured Series Title</h1>
-          <p class="lead text-body-secondary">Short description or tagline for the series.</p>
+          <h1 class="display-5 dm-serif-text-regular">Gentle Fluidity</h1>
         </div>
+      </div>
       </div>
     </section>
   </div>
 
   <main>
-    <hr class="spacer-double">
+    <hr class="spacer">
 
     <div class="container marketing">
       <div class="row">
@@ -152,8 +162,7 @@
             <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary">NFT/001.</span></h2>
             <p class="lead">Brief description of the work.</p>
             <p>Release date.<br>Price.</p>
-            <a href="/artwork" class="btn custom-button">Buy Now</a>
-            <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
+            <a href="/artwork" class="btn custom-nav-button">Buy Now</a>
           </div>
         </div>
         <div class="col-md-4 featurette">
@@ -162,8 +171,7 @@
             <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary">NFT/002.</span></h2>
             <p class="lead">Brief description of the work.</p>
             <p>Release date.<br>Price.</p>
-            <a href="/artwork" class="btn custom-button">Buy Now</a>
-            <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
+            <a href="/artwork" class="btn custom-nav-button">Buy Now</a>
           </div>
         </div>
         <div class="col-md-4 featurette">
@@ -172,8 +180,7 @@
             <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary">NFT/003.</span></h2>
             <p class="lead">Brief description of the work.</p>
             <p>Release date.<br>Price.</p>
-            <a href="/artwork" class="btn custom-button">Buy Now</a>
-            <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
+            <a href="/artwork" class="btn custom-nav-button">Buy Now</a>
           </div>
         </div>
       </div>
