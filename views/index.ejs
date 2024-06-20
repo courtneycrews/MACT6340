@@ -13,11 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" type="image/x-icon" href="./images/icon.png">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 
     <title>Home - Courtney Michelle</title>
-  </head>
-
 
     <style>
       html, body {
@@ -31,41 +29,59 @@
 
     .hero-container {
       width: 100vw;
-      height: 500px;
+      height: 600px;
       overflow: hidden;
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .hero-image {
+    #canvas1 {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-    }
-
-    .navbar {
-      position: static;
+      display: block;
+      position: absolute;
       top: 0;
-      width: 100%;
-      background-color: transparent;
-      z-index: 10;
+      left: 0;
+      filter: blur(5px) contrast(15);
     }
 
-    .navbar .nav-link,
-    .navbar .navbar-brand {
+    .featurette {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .featurette .featurette-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
       color: white;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
     }
 
-    .navbar .nav-link:hover,
-    .navbar .navbar-brand:hover {
-      color: saddlebrown;
+    .featurette:hover .featurette-content {
+      opacity: 1;
     }
 
+    .featurette img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
     </style>
+  </head>
 
 
     <body>
+    <!-- 
       <div class="hero-container">
-        <img class="hero-image" src="./images/hero-image.jpg" alt="Hero Image">
+       <img class="hero-image" src="./images/hero-image.jpg" alt="Hero Image">
   
         <nav class="navbar navbar-expand-lg">
           <div class="container">
@@ -88,9 +104,11 @@
                   <a class="nav-link" href="/contact">Contact</a>
                 </li>
               </ul>
-              <div class="text-end">
-                <button id="wallet-connect" type="button" class="btn custom-nav-button">Connect Wallet</button>
-              </div>
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <button id="wallet-connect" type="button" class="btn custom-nav-button">Connect Wallet</button>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>
@@ -104,53 +122,93 @@
           </div>
         </section>
       </div>
+    -->
 
-      <main>
-        <div class="container marketing overlap">
-          <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary">NFT/001.</span></h2>
-              <p class="lead">Brief description of the work.</p>
-              <p>release date.<br>price.</p>
-              <a href="/artwork" class="btn custom-button">Buy Now</a>
-              <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
-            </div>
-            <div class="col-md-5 order-md-1">
-              <img class="featurette-image img-fluid mx-auto" src="./images/courtneymichelle_glassmorphism_white_magnolia.jpg" width="500" height="500" alt="White Magnolia Glassmorphism by Courtney Crews, 2024">
-            </div>
-          </div>
-      
-          <hr class="spacer-double">
-      
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading fw-normal lh-1">Blog Headline. <span class="text-body-secondary">Optional Subheader.</span></h2>
-              <p class="lead">A brief description of the article.</p>
-              <p>release date.<br>author.</p>
-              <a href="#" class="btn custom-nav-button">Read More</a>
-            </div>
-            <div class="col-md-5">
-              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
-            </div>
-          </div>
+      <!-- New setup with separated navbar and hero section -->
+  <div class="navbar navbar-expand-lg">
+    <%- include('header'); %>
+  </div>
 
-          <hr class="spacer-double">
+  <div class="hero-container">
+    <canvas id="canvas1"></canvas>
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="display-5 dm-serif-text-regular">Featured Series Title</h1>
+          <p class="lead text-body-secondary">Short description or tagline for the series.</p>
+        </div>
+      </div>
+    </section>
+  </div>
 
-          <div id="about-artist" class="row featurette">
-            <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading fw-normal lh-1">About the Artist. <span class="text-body-secondary">Courtney.</span></h2>
-              <p class="lead">Master’s Student, Creative Technology, Southern Methodist University<br> BA, Art History, California State University, Long Beach</p>
-              <p> With a background in art history and museum administration, my artwork blends tradition, nature, and technology, creating a harmonious fusion that reflects my educational background and passion for innovation.</p>
-              <a href="/contact" class="btn custom-nav-button">Contact Me</a>
-            </div>
-            <div class="col-md-5 order-md-1">
-              <img class="featurette-image img-fluid mx-auto" src="./images/courtney_bw.jpg" width="500" height="500" alt="Courtney Spring 2024">
-            </div>
+  <main>
+    <hr class="spacer-double">
+
+    <div class="container marketing">
+      <div class="row">
+        <div class="col-md-4 featurette">
+          <img class="featurette-image img-fluid mx-auto" src="./images/courtneymichelle_glassmorphism_white_magnolia.jpg" alt="White Magnolia Glassmorphism by Courtney Crews, 2024">
+          <div class="featurette-content">
+            <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary">NFT/001.</span></h2>
+            <p class="lead">Brief description of the work.</p>
+            <p>Release date.<br>Price.</p>
+            <a href="/artwork" class="btn custom-button">Buy Now</a>
+            <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
           </div>
+        </div>
+        <div class="col-md-4 featurette">
+          <img class="featurette-image img-fluid mx-auto" src="./images/courtneymichelle_glassmorphism_white_magnolia.jpg" alt="White Magnolia Glassmorphism by Courtney Crews, 2024">
+          <div class="featurette-content">
+            <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary">NFT/002.</span></h2>
+            <p class="lead">Brief description of the work.</p>
+            <p>Release date.<br>Price.</p>
+            <a href="/artwork" class="btn custom-button">Buy Now</a>
+            <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
+          </div>
+        </div>
+        <div class="col-md-4 featurette">
+          <img class="featurette-image img-fluid mx-auto" src="./images/courtneymichelle_glassmorphism_white_magnolia.jpg" alt="White Magnolia Glassmorphism by Courtney Crews, 2024">
+          <div class="featurette-content">
+            <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary">NFT/003.</span></h2>
+            <p class="lead">Brief description of the work.</p>
+            <p>Release date.<br>Price.</p>
+            <a href="/artwork" class="btn custom-button">Buy Now</a>
+            <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
+          </div>
+        </div>
+      </div>
       
-          <hr class="spacer">
+      <hr class="spacer-double">
+      
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-normal lh-1">Blog Headline. <span class="text-body-secondary">Optional Subheader.</span></h2>
+          <p class="lead">A brief description of the article.</p>
+          <p>release date.<br>author.</p>
+          <a href="#" class="btn custom-nav-button">Read More</a>
+        </div>
+        <div class="col-md-5">
+          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+        </div>
+      </div>
+
+      <hr class="spacer-double">
+
+      <div id="about-artist" class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading fw-normal lh-1">About the Artist. <span class="text-body-secondary">Courtney.</span></h2>
+          <p class="lead">Master’s Student, Creative Technology, Southern Methodist University<br> BA, Art History, California State University, Long Beach</p>
+          <p> With a background in art history and museum administration, my artwork blends tradition, nature, and technology, creating a harmonious fusion that reflects my educational background and passion for innovation.</p>
+          <a href="/contact" class="btn custom-nav-button">Contact Me</a>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img class="featurette-image img-fluid mx-auto" src="./images/courtney_bw.jpg" width="500" height="500" alt="Courtney Spring 2024">
+        </div>
+      </div>
+      
+      <hr class="spacer">
+
       </main>
-
       <div class="footer-container px-5">
         <%- include('footer'); %>
       </div>
@@ -158,6 +216,7 @@
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
       <script type="module" src="./js/index.js"></script>
+      <script src="./js/gooey.js"></script>
 
 </body>
 </html>

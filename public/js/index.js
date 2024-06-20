@@ -4,11 +4,9 @@
     let userAddress = null;
     let connect = document.querySelector("#wallet-connect");
 
-    connectWallet();
-
     connect.addEventListener("click", async () => {
-        connectWallet
-    })
+        connectWallet();
+    });
 
     async function connectWallet() {
         await window.ethereum

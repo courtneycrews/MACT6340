@@ -7,7 +7,7 @@ html {
 
   body {
     font-family: "Reddit Sans Condensed", sans-serif;
-    background-color: #EEECE6; /* Choose your desired background color */
+    background-color: whitesmoke; /* Choose your desired background color */
     color: rgb(var(--bs-tertiary-color-rgb));
   }
 
@@ -47,6 +47,23 @@ html {
     font-style: italic;
   }
   
+  .navbar {
+    position: static;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: 10;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    color: black;
+  }
+
+  .navbar .nav-link:hover,
+  .navbar .navbar-brand:hover {
+    color: cornflowerblue;
+  }
 
   .hero-image {
     background-size: cover;
@@ -87,7 +104,7 @@ html {
 }
 
 .custom-button {
-    background-color: saddlebrown; /* Custom background color */
+    background-color: cornflowerblue; /* Custom background color */
     color: white; /* Custom text color */
     padding: 6px 12px; /* Custom padding */
     font-size: 16px; /* Custom font size */
@@ -96,17 +113,17 @@ html {
   }
 
 .custom-button:hover {
-    background-color: white; /* Lighter background on hover */
-    color: black; /* Change text color on hover */
+    background-color: black; /* Lighter background on hover */
+    color: white; /* Change text color on hover */
   }
 
   .custom-nav-button {
     background-color: transparent; /* Custom background color */
-    color: saddlebrown; /* Custom text color */
+    color: cornflowerblue; /* Custom text color */
     padding: 6px 12px; /* Custom padding */
     font-size: 16px; /* Custom font size */
     border-radius: 8px; /* Rounded corners */
-    border: 1px solid saddlebrown;
+    border: 1px solid cornflowerblue;
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
   }
 
@@ -116,7 +133,7 @@ html {
   }
 
 .custom-border-top {
-  border-top: 1px solid white; /* white border */
+  border-top: 1px solid slategray; /* simple divider */
 }
 
 .overlap {
@@ -130,15 +147,14 @@ html {
   height: 100px;
   padding-top: 8px;
   padding-bottom: 20px;
-  background-color: silver;
+  background-color: whitesmoke;
 }
 
-/* Apply white color to specific SVG icons by class */
-.icon-white {
-  fill: white;
+.icon-gray {
+  fill: slategray;
 }
 
 .footer-text {
-  color: white; /* Change this to your desired color */
+  color: slategray; 
 }
 
