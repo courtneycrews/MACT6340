@@ -21,7 +21,7 @@ class Particle {
         this.pushX = 0;
         this.pushY = 0;
         this.friction = 0.9;
-        this.margin = 20;
+        this.margin = 50;
     }
 
     draw(context) {
@@ -102,7 +102,7 @@ class Effect {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.particles = [];
-        this.numberOfParticles = 300;
+        this.numberOfParticles = 350;
         this.createParticles();
 
         this.mouse = {
