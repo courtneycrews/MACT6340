@@ -85,17 +85,18 @@
       display: block;
     }
 
-    .carousel-item img {
-    width: 350px !important;
-    height: 350px !important;
-    object-fit: cover;
-  }
+    .grid-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-  .carousel-caption {
-    position: static;
-    color: #000;
-    padding-top: 10px;
-  }
+    .grid-caption {
+      text-align: left;
+      position: static;
+      color: #000;
+      padding-top: 10px;
+    }
     </style>
   </head>
 
@@ -176,7 +177,7 @@
             <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary" style="color: cornflowerblue !important;">NFT/001.</span></h2>
             <p class="lead">Brief description of the work.</p>
             <p>Release date.<br>Price.</p>
-            <a href="/artwork" class="btn custom-nav-button">Buy Now</a>
+            <a href="artwork.ejs" class="btn custom-nav-button">Buy Now</a>
           </div>
         </div>
       </div>
@@ -187,7 +188,7 @@
             <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary" style="color: cornflowerblue !important;">NFT/002.</span></h2>
             <p class="lead">Brief description of the work.</p>
             <p>Release date.<br>Price.</p>
-            <a href="/artwork" class="btn custom-nav-button">Buy Now</a>
+            <a href="./artwork.ejs" class="btn custom-nav-button">Buy Now</a>
           </div>
           </div>
         </div>
@@ -202,83 +203,69 @@
 
       <hr class="spacer">
 
-      <!-- Carousel of Popular Works -->
-      <div id="popularWorksCarousel" class="carousel slide" data-bs-interval="false">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row">
-              <div class="col-6 col-md-3">
-              <img src="./images/placeholder.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption">
-                <p>Price: $100</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-md-3 mb-4">
+            <div class="grid-thumbnail">
+              <a href="./artwork.ejs">
+              <img src="./images/placeholder.jpg" class="img-fluid" alt="...">
+              </a>
+              <div class="grid-caption">
+                <p>
+                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
+                  0.03 ETH <span class="text-body-secondary">(mint complete)</span>
+                </p>
               </div>
-              </div>
-                    <div class="col-6 col-md-3">
-                      <img src="./images/placeholder.jpg" class="d-block w-100" alt="...">
-                      <div class="carousel-caption">
-                        <p>Price: $200</p>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <img src="./images/placeholder.jpg" class="d-block w-100" alt="...">
-                      <div class="carousel-caption">
-                        <p>Price: $150</p>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <img src="./images/placeholder.jpg" class="d-block w-100" alt="...">
-                      <div class="carousel-caption">
-                        <p>Price: $250</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="row">
-                    <div class="col-6 col-md-3">
-                      <img src="./images/placeholder.jpg" class="d-block w-100" alt="...">
-                      <div class="carousel-caption">
-                        <p>Price: $120</p>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <img src="./images/placeholder.jpg" class="d-block w-100" alt="...">
-                      <div class="carousel-caption">
-                        <p>Price: $220</p>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <img src="./images/placeholder.jpg" class="d-block w-100" alt="...">
-                      <div class="carousel-caption">
-                        <p>Price: $180</p>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-3">
-                      <img src="./images/placeholder.jpg" class="d-block w-100" alt="...">
-                      <div class="carousel-caption">
-                        <p>Price: $300</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#popularWorksCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#popularWorksCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
             </div>
-            <!-- End of Carousel -->
-      
-      <hr class="spacer-double">
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="grid-thumbnail">
+              <a href="./artwork.ejs">
+              <img src="./images/placeholder.jpg" class="img-fluid" alt="...">
+              </a>
+              <div class="grid-caption">
+                <p>
+                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
+                  0.03 ETH <span class="text-body-secondary">(86/100 minted)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="grid-thumbnail">
+              <a href="./artwork.ejs">
+              <img src="./images/placeholder.jpg" class="img-fluid" alt="...">
+              </a>
+              <div class="grid-caption">
+                <p>
+                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
+                  0.03 ETH <span class="text-body-secondary">(74/100 minted)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="grid-thumbnail">
+              <a href="./artwork.ejs">
+              <img src="./images/placeholder.jpg" class="img-fluid" alt="...">
+              </a>
+              <div class="grid-caption">
+                <p>
+                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
+                  0.03 ETH <span class="text-body-secondary">(72/100 minted)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="spacer-triple">
 
       <div id="about-artist" class="container">
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">About the Artist. <span class="text-body-secondary">Courtney.</span></h2>
+          <h2 class="featurette-heading fw-normal lh-1">About the Artist. <span class="text-body-secondary" style="color: cornflowerblue !important;">Courtney.</span></h2>
           <p class="lead">Master’s Student, Creative Technology, Southern Methodist University<br> BA, Art History, California State University, Long Beach</p>
           <p> With a background in art history and museum administration, my artwork blends tradition, nature, and technology, creating a harmonious fusion that reflects my educational background and passion for innovation.</p>
           <a href="/contact" class="btn custom-nav-button">Contact Me</a>
@@ -309,7 +296,7 @@
           featurette.addEventListener('touchend', function() {
             setTimeout(() => {
               this.classList.remove('touch-active');
-            }, 3000); // Keep the featurette content visible for 3 seconds
+            }, 5000); // Keep the featurette content visible for 5 seconds
           });
         });
       </script>
