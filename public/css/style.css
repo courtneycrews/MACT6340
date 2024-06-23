@@ -62,7 +62,7 @@ html {
 
   .navbar .nav-link:hover,
   .navbar .navbar-brand:hover {
-    color: cornflowerblue;
+    color: royalblue;
   }
 
   .hero-image {
@@ -104,7 +104,7 @@ html {
 }
 
 .custom-button {
-    background-color: cornflowerblue; /* Custom background color */
+    background-color: royalblue; /* Custom background color */
     color: white; /* Custom text color */
     padding: 6px 12px; /* Custom padding */
     font-size: 16px; /* Custom font size */
@@ -119,16 +119,31 @@ html {
 
   .custom-nav-button {
     background-color: transparent; /* Custom background color */
-    color: cornflowerblue; /* Custom text color */
+    color: royalblue; /* Custom text color */
     padding: 6px 12px; /* Custom padding */
     font-size: 16px; /* Custom font size */
     border-radius: 8px; /* Rounded corners */
-    border: 1px solid cornflowerblue;
+    border: 1px solid royalblue;
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
   }
 
 .custom-nav-button:hover {
-    background-color: cornflowerblue; /* Lighter background on hover */
+    background-color: royalblue; /* Lighter background on hover */
+    color: whitesmoke; /* Change text color on hover */
+  }
+
+  .custom-featurette-button {
+    background-color: transparent; /* Custom background color */
+    color: whitesmoke; /* Custom text color */
+    padding: 6px 12px; /* Custom padding */
+    font-size: 16px; /* Custom font size */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid whitesmoke;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  }
+
+  .custom-featurette-button:hover {
+    background-color: royalblue; /* Lighter background on hover */
     color: whitesmoke; /* Change text color on hover */
   }
 

@@ -16,26 +16,60 @@
         <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 
         <title>Gallery - Courtney Michelle</title>
+
+        <style>
+            html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+          }
+      
+          * {
+            box-sizing: border-box;
+          }
+
+        .hero-container {
+            width: 100vw;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        </style>
     </head>
 
-    <body>
-        <div class="navbar navbar-expand-lg">
-            <%- include('header'); %>
+<body>
+    <div class="navbar navbar-expand-lg">
+        <%- include('header'); %>
+    </div>
+
+        <section>
+            <div class="divider"></div>
+            <div id="contact-headline" class="beginning pt-5 m-2 text-dark text-center">
+              <h1 class="display-5 dm-serif-text-regular">Gallery</h1>
+            </div>
+        </section>
+
+        <hr class="spacer">
+
+        <div class="container">
+            <div class="row">
+                <% projectArray.forEach((item, index) => { %> 
+                    <div class="col-12 col-lg-6 mb-4">
+                        <%- include('projectCard', {ident: item.id, image: item.image_url, name: item.project_name}); %>
+                    </div>
+                <% }); %>
+            </div>
         </div>
 
-        <div>Gallery</div>
-        <% projectArray.forEach((item, index) => { %> 
-     
-            <div>
-                <%- include('projectCard', {ident: item.id, image: item.image_url, name: item.project_name}); %>
-            </div>
-        <% }); %>
+        <hr class="spacer-triple">
 
         <div class="footer-container px-5">
             <%- include('footer'); %>
         </div>
 
         <script type="module" src="./js/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybA6Y+6b6YhZ2yE2y/f4lP6C8oFujV7K6e+5biI6R6aE1zX2J" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-qNZz+4pw5BPh+LlGF6E2CjN+nb6uXbL2lFufzrKCBF+fzmKVFi6p7LRVTRlJl5V4" crossorigin="anonymous"></script>
     </body>
-
 </html>
