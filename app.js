@@ -52,11 +52,17 @@ app.post("/mail", async (req, res) => {
   });
 });
 
+// Middleware to handle 404 errors
+app.use((req, res, next) => {
+  res.status(404).render("error.ejs");
+});
+
+// Error handling middleware
 app.use((err, req, res, next) => {
-  console.log(err);
-  res.render("error.ejs");
+  console.error(err);
+  res.status(500).render("error.ejs", { error: err });
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});

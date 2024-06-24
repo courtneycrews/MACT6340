@@ -7,32 +7,8 @@ html {
 
   body {
     font-family: "Reddit Sans Condensed", sans-serif;
-    background-color: whitesmoke; /* Choose your desired background color */
+    background-color: whitesmoke;
     color: rgb(var(--bs-tertiary-color-rgb));
-  }
-
-  .barlow-condensed-regular {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .barlow-condensed-regular-italic {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .barlow-condensed-light-italic {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-  }
-  
-  .barlow-condensed-light {
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 300;
-    font-style: normal;
   }
 
   .dm-serif-text-regular {
@@ -105,7 +81,7 @@ html {
 
 .custom-button {
     background-color: royalblue; /* Custom background color */
-    color: white; /* Custom text color */
+    color: whitesmoke; /* Custom text color */
     padding: 6px 12px; /* Custom padding */
     font-size: 16px; /* Custom font size */
     border-radius: 8px; /* Rounded corners */
