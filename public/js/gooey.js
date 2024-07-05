@@ -1,4 +1,4 @@
-//original code sourced from Frank's labratory YouTube channel tutorials https://www.youtube.com/@Frankslaboratory
+//code based on turorial from Frank's labratory YouTube channel https://www.youtube.com/@Frankslaboratory
 
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext('2d');
