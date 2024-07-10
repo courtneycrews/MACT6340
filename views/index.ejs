@@ -154,6 +154,10 @@
 
   <div class="hero-container">
     <canvas id="canvas1"></canvas>
+    <div id="mobile-header" style="display: none;">
+      <!-- Mobile header content -->
+      <h1>Mobile Header</h1>
+    </div>
   </div>
 
   <hr class="spacer-double">
@@ -288,6 +292,18 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
       <script type="module" src="./js/index.js"></script>
       <script src="./js/gooey.js"></script>
+      <script>
+        function isMobileDevice() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        if (isMobileDevice()) {
+            document.getElementById('canvas1').style.display = 'none';
+            document.getElementById('mobile-header').style.display = 'block';
+        } else {
+            // Initialize canvas for desktop
+        }
+      </script>
       <script>
         document.querySelectorAll('.featurette').forEach(function(featurette) {
           featurette.addEventListener('touchstart', function() {
