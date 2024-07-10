@@ -148,29 +148,33 @@
     -->
 
       <!-- New setup with separated navbar and hero section -->
-  <div class="navbar navbar-expand-lg">
-    <%- include('header'); %>
-  </div>
+      
 
-  <div class="hero-container">
-    <canvas id="canvas1"></canvas>
-    <div id="mobile-header" style="display: none;">
-      <!-- Mobile header content -->
-      <h1>Mobile Header</h1>
-    </div>
-  </div>
+      <header>
+        <nav class="navbar navbar-expand-lg">
+          <%- include('header'); %>
+        </nav>
+
+        <div class="hero-container">
+            <canvas id="canvas1"></canvas>
+            <div id="mobile-hero" class="hero-headline text-center" style="display: none;">
+                <h1 class="display-4 dm-serif-text-regular">Gentle Dissonance</h1>
+                <p>Brief description of the series.</p>
+                <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
+            </div>
+        </div>
+    </header>
 
   <hr class="spacer-double">
 
-  <div class="hero-headline text-center">
-    <h1 class="display-4 dm-serif-text-regular">Gentle Dissonance</h1>
-    <p> Brief description of the series.</p>
-    <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
+  <main>
+    <div class="hero-headline text-center">
+      <h1 class="display-4 dm-serif-text-regular">Gentle Dissonance</h1>
+      <p>Brief description of the series.</p>
+      <a href="/gallery" class="btn custom-nav-button">View Gallery</a>
   </div>
 
-
-  <main>
-    <hr class="spacer-double">
+  <hr class="spacer-double">
 
     <div class="container marketing">
       <div class="row">
@@ -294,16 +298,20 @@
       <script src="./js/gooey.js"></script>
       <script>
         function isMobileDevice() {
-            return /Mobi|Android/i.test(navigator.userAgent);
+            return /Mobi|Android|iPhone/i.test(navigator.userAgent);
         }
-
-        if (isMobileDevice()) {
-            document.getElementById('canvas1').style.display = 'none';
-            document.getElementById('mobile-header').style.display = 'block';
-        } else {
-            // Initialize canvas for desktop
-        }
-      </script>
+    
+        window.onload = function() {
+            if (isMobileDevice()) {
+                document.getElementById('canvas1').style.display = 'none';
+                document.getElementById('mobile-hero').style.display = 'block';
+            } else {
+                document.getElementById('canvas1').style.display = 'block';
+                document.getElementById('mobile-hero').style.display = 'none';
+                // Initialize canvas for desktop here
+            }
+        };
+    </script>
       <script>
         document.querySelectorAll('.featurette').forEach(function(featurette) {
           featurette.addEventListener('touchstart', function() {
