@@ -19,10 +19,13 @@
 
     <style>
       html, body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
+        margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: "Reddit Sans Condensed", sans-serif;
+            background-color: whitesmoke;
+            color: rgb(var(--bs-tertiary-color-rgb));
+        }
     * {
       box-sizing: border-box;
     }
@@ -49,12 +52,12 @@
     z-index: 1;
    }
 
-    .hero-text {
-    color: white;
-    position: relative;
-    z-index: 10; /* Ensure hero text is above the canvas */
-    text-align: center;
-    }
+   .hero-headline, .hero-text {
+            color: black;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
 
     .featurette {
       position: relative;
@@ -74,10 +77,9 @@
       transition: opacity 0.3s ease-in-out;
     }
 
-    .featurette:hover .featurette-content,
-    .featurette.touch-active .featurette-content {
-      opacity: 1;
-    }
+    .featurette:hover .featurette-content {
+            opacity: 1;
+        }
 
     .featurette img {
       width: 100%;
@@ -86,16 +88,19 @@
     }
 
     /* Media query to show details on mobile */
-@media (max-width: 768px) {
-    .featurette .featurette-content {
-        position: static;
-        opacity: 1;
-        background: none;
-        color: inherit;
-        padding: 10px 0;
-        transition: none;
-    }
-}
+    @media (max-width: 768px) {
+            .featurette .featurette-content {
+                position: static;
+                opacity: 1;
+                background: none;
+                color: inherit;
+                padding: 10px 0;
+                transition: none;
+            }
+            .hero-container {
+                display: none;
+            }
+        }
 
     .grid-thumbnail img {
       width: 100%;
@@ -109,65 +114,11 @@
       color: #000;
       padding-top: 10px;
     }
-
-        /* Media query to hide the hero-container on small screens */
-        @media (max-width: 768px) {
-            .hero-container {
-                display: none;
-            }
-        }
     </style>
   </head>
 
 
   <body>
-    <!-- 
-      <div class="hero-container">
-       <img class="hero-image" src="./images/hero-image.jpg" alt="Hero Image">
-  
-        <nav class="navbar navbar-expand-lg">
-          <div class="container">
-            <a class="navbar-brand" href="#about-artist">CourtneyMichelle</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/index">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/artwork">Artwork</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/gallery">Gallery</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/contact">Contact</a>
-                </li>
-              </ul>
-              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <button id="wallet-connect" type="button" class="btn custom-nav-button">Connect Wallet</button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <section class="py-5 text-center container">
-          <div class="row py-lg-5">
-            <hr class="spacer">
-            <div class="col-lg-6 col-md-8 mx-auto">
-              <h1 class="display-5 dm-serif-text-regular">Featured Series Title</h1>
-              <p class="lead text-body-secondary">Short description or tagline for the series.</p>
-            </div>
-          </div>
-        </section>
-      </div>
-    -->
-
-      <!-- New setup with separated navbar and hero section -->
-      
       <header>
         <nav class="navbar navbar-expand-lg">
             <%- include('header'); %>

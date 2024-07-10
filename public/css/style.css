@@ -1,136 +1,157 @@
-html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-
-  body {
-    font-family: "Reddit Sans Condensed", sans-serif;
-    background-color: whitesmoke;
-    color: rgb(var(--bs-tertiary-color-rgb));
-  }
-
-  .dm-serif-text-regular {
-    font-family: "DM Serif Text", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .dm-serif-text-regular-italic {
-    font-family: "DM Serif Text", serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .navbar {
-    position: static;
-    top: 0;
-    width: 100%;
-    background-color: transparent;
-    z-index: 10;
-  }
-
-  .navbar .nav-link,
-  .navbar .navbar-brand {
-    color: black;
-  }
-
-  .navbar .nav-link:hover,
-  .navbar .navbar-brand:hover {
-    color: royalblue;
-  }
-
-  .hero-image {
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    z-index: -1;
-  }
-
-  hr.spacer {
-    border: none;
-    height: var(--spacer-height, 40px); /* Default height */
-    margin: 0;
-  }
-  
-  hr.spacer-double {
-    border: none;
-    height: calc(var(--spacer-height, 40px) * 2); /* Double the height */
-  }
-  
-  hr.spacer-triple {
-    border: none;
-    height: calc(var(--spacer-height, 40px) * 3); /* Triple the height */
-  }
-  
-
-/* Thin out the marketing headings */
-/* rtl:begin:remove */
-.featurette-heading {
-  letter-spacing: -.05rem;
+html, body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Reddit Sans Condensed", sans-serif;
+  background-color: whitesmoke;
+  color: rgb(var(--bs-tertiary-color-rgb));
+  scroll-behavior: smooth;
 }
 
-@media (min-width: 62em) {
-  .featurette-heading {
-    margin-top: 7rem;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.dm-serif-text-regular {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-serif-text-regular-italic {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.navbar {
+  position: static;
+  width: 100%;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+  color: black;
+}
+
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+  color: royalblue;
+}
+
+hr.spacer {
+  border: none;
+  height: var(--spacer-height, 40px); /* Default height */
+  margin: 0;
+}
+
+hr.spacer-double {
+  border: none;
+  height: calc(var(--spacer-height, 40px) * 2); /* Double the height */
+}
+
+hr.spacer-triple {
+  border: none;
+  height: calc(var(--spacer-height, 40px) * 3); /* Triple the height */
+}
+
+.featurette {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.featurette .featurette-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.featurette:hover .featurette-content {
+  opacity: 1;
+}
+
+.featurette img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.grid-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-caption {
+  text-align: left;
+  color: #000;
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .featurette .featurette-content {
+      position: static;
+      opacity: 1;
+      background: none;
+      color: inherit;
+      padding: 10px 0;
+      transition: none;
   }
+}
+
+.custom-button,
+.custom-nav-button,
+.custom-featurette-button {
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .custom-button {
-    background-color: royalblue; /* Custom background color */
-    color: whitesmoke; /* Custom text color */
-    padding: 6px 12px; /* Custom padding */
-    font-size: 16px; /* Custom font size */
-    border-radius: 8px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-  }
+  background-color: royalblue;
+  color: whitesmoke;
+}
 
 .custom-button:hover {
-    background-color: black; /* Lighter background on hover */
-    color: whitesmoke; /* Change text color on hover */
-  }
+  background-color: black;
+  color: whitesmoke;
+}
 
-  .custom-nav-button {
-    background-color: transparent; /* Custom background color */
-    color: royalblue; /* Custom text color */
-    padding: 6px 12px; /* Custom padding */
-    font-size: 16px; /* Custom font size */
-    border-radius: 8px; /* Rounded corners */
-    border: 1px solid royalblue;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-  }
+.custom-nav-button {
+  background-color: transparent;
+  color: royalblue;
+  border: 1px solid royalblue;
+}
 
 .custom-nav-button:hover {
-    background-color: royalblue; /* Lighter background on hover */
-    color: whitesmoke; /* Change text color on hover */
-  }
+  background-color: royalblue;
+  color: whitesmoke;
+}
 
-  .custom-featurette-button {
-    background-color: transparent; /* Custom background color */
-    color: whitesmoke; /* Custom text color */
-    padding: 6px 12px; /* Custom padding */
-    font-size: 16px; /* Custom font size */
-    border-radius: 8px; /* Rounded corners */
-    border: 1px solid whitesmoke;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-  }
+.custom-featurette-button {
+  background-color: transparent;
+  color: whitesmoke;
+  border: 1px solid whitesmoke;
+}
 
-  .custom-featurette-button:hover {
-    background-color: royalblue; /* Lighter background on hover */
-    color: whitesmoke; /* Change text color on hover */
-  }
+.custom-featurette-button:hover {
+  background-color: royalblue;
+  color: whitesmoke;
+}
 
 .custom-border-top {
   border-top: 1px solid slategray; /* simple divider */
-}
-
-.overlap {
-  margin-top: -50px; /* Adjust the value as needed */
-  position: relative;
-  z-index: 5; /* Ensure it appears above the hero image */
 }
 
 .footer-container {
