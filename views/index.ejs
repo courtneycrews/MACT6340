@@ -18,18 +18,6 @@
     <title>Home - Courtney Michelle</title>
 
     <style>
-      html, body {
-        margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            font-family: "Reddit Sans Condensed", sans-serif;
-            background-color: whitesmoke;
-            color: rgb(var(--bs-tertiary-color-rgb));
-        }
-    * {
-      box-sizing: border-box;
-    }
-
     .hero-container {
       width: 100vw;
       height: 575px;
@@ -59,70 +47,29 @@
             text-align: center;
         }
 
-    .featurette {
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-    }
-
-    .featurette .featurette-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 20px;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .featurette:hover .featurette-content {
-            opacity: 1;
-        }
-
-    .featurette img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Media query to show details on mobile */
-    @media (max-width: 768px) {
-            .featurette .featurette-content {
-                position: static;
-                opacity: 1;
-                background: none;
-                color: inherit;
-                padding: 10px 0;
-                transition: none;
-            }
-            .hero-container {
-                display: none;
-            }
-        }
-
-    .grid-thumbnail img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .grid-caption {
-      text-align: left;
+  @media (max-width: 1024px) {
+  .featurette .featurette-content {
       position: static;
-      color: #000;
-      padding-top: 10px;
-    }
+      opacity: 1;
+      background: none;
+      color: inherit;
+      padding: 10px 0;
+      transition: none;
+  }
+  .hero-container {
+      display: none;
+  }
+}
     </style>
   </head>
 
 
   <body>
-      <header>
-        <nav class="navbar navbar-expand-lg">
-            <%- include('header'); %>
-        </nav>
+    <div class="navbar navbar-expand-lg">
+      <%- include('header'); %>
+    </div>
+
+    <header>
         <div class="hero-container">
             <canvas id="canvas1"></canvas>
         </div>
@@ -148,7 +95,7 @@
             <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary" style="color: royalblue !important;">NFT/001.</span></h2>
             <p class="lead">Brief description of the work.</p>
             <p>Release date.<br>Price.</p>
-            <a href="artwork.ejs" class="btn custom-featurette-button">Buy Now</a>
+            <a href="/artwork" class="btn custom-button">Buy Now</a>
           </div>
         </div>
       </div>
@@ -159,7 +106,7 @@
             <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary" style="color: royalblue !important;">NFT/002.</span></h2>
             <p class="lead">Brief description of the work.</p>
             <p>Release date.<br>Price.</p>
-            <a href="./artwork.ejs" class="btn custom-featurette-button">Buy Now</a>
+            <a href="/artwork" class="btn custom-button">Buy Now</a>
           </div>
           </div>
         </div>
@@ -251,10 +198,12 @@
       <hr class="spacer">
 
       </main>
-      <div class="footer-container px-5">
-        <%- include('footer'); %>
-      </div>
-    </div>    
+      
+      <footer>
+        <div class="footer-container px-5">
+          <%- include('footer'); %>
+        </div>
+      </footer>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
       <script type="module" src="./js/index.js"></script>

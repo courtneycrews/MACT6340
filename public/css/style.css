@@ -1,16 +1,15 @@
 html, body {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: "Reddit Sans Condensed", sans-serif;
   background-color: whitesmoke;
   color: rgb(var(--bs-tertiary-color-rgb));
-  scroll-behavior: smooth;
 }
 
 *, *:before, *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .dm-serif-text-regular {
@@ -98,17 +97,6 @@ hr.spacer-triple {
   padding-top: 10px;
 }
 
-@media (max-width: 768px) {
-  .featurette .featurette-content {
-      position: static;
-      opacity: 1;
-      background: none;
-      color: inherit;
-      padding: 10px 0;
-      transition: none;
-  }
-}
-
 .custom-button,
 .custom-nav-button,
 .custom-featurette-button {
@@ -156,10 +144,10 @@ hr.spacer-triple {
 
 .footer-container {
   width: 100vw;
-  height: 100px;
   padding-top: 8px;
   padding-bottom: 20px;
   background-color: whitesmoke;
+  box-sizing: border-box;
 }
 
 .icon-gray {

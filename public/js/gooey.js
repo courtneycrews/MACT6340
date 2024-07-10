@@ -21,7 +21,7 @@ class Particle {
         this.pushX = 0;
         this.pushY = 0;
         this.friction = 0.9;
-        this.margin = 50;
+        this.margin = 80;
     }
 
     draw(context) {
