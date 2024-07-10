@@ -98,8 +98,9 @@
       padding-top: 10px;
     }
 
-    @media (max-width: 768px) {
-            #canvas1 {
+        /* Media query to hide the hero-container on small screens */
+        @media (max-width: 768px) {
+            .hero-container {
                 display: none;
             }
         }
@@ -155,8 +156,7 @@
 
       <!-- New setup with separated navbar and hero section -->
       
-
-    <header>
+      <header>
         <nav class="navbar navbar-expand-lg">
             <%- include('header'); %>
         </nav>
