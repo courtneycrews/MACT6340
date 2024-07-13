@@ -60,6 +60,23 @@
       display: none;
   }
 }
+
+.eth-price {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .eth-logo {
+        width: 25px !important;
+        height: 25px !important;
+        margin-right: 5px;
+    }
+
+    @media (min-width: 1024px) {
+        .eth-logo.featured {
+            filter: invert(1); /* This makes the logo white on full screen */
+        }
+    }
     </style>
   </head>
 
@@ -90,23 +107,26 @@
       <div class="row">
         <div class="col-12 col-lg-6 mb-4">
           <div class="featurette">
-          <img class="featurette-image img-fluid mx-auto" src="./images/placeholder.jpg" alt="Black and white flow field placeholder image">
+          <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 1').img_url %>" alt="Project 1 thumbnail">
           <div class="featurette-content">
-            <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary" style="color: royalblue !important;">NFT/001.</span></h2>
-            <p class="lead">Brief description of the work.</p>
-            <p>Release date.<br>Price.</p>
-            <a href="/artwork" class="btn custom-button">Buy Now</a>
+            <h2 class="featurette-heading fw-normal lh-1"><%= projects.find(project => project.project_name === 'Project 1').project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/001.</span></h2>
+            <p class="lead"><%= projects.find(project => project.project_name === 'Project 1').project_description %>.</p>
+            <div class="eth-price">
+              <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
+              <span class="eth-amount"><%= projects.find(project => project.project_name === 'Project 1').price_eth %> ETH</span>
+          </div>
+            <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 1').id %>" class="btn custom-button">View Artwork</a>
           </div>
         </div>
       </div>
         <div class="col-12 col-lg-6 mb-4">
           <div class="featurette">
-          <img class="featurette-image img-fluid mx-auto" src="./images/placeholder.jpg" alt="Black and white flow field placeholder image">
+          <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 2').img_url %>" alt="Project 2 thumbnail">
           <div class="featurette-content">
             <h2 class="featurette-heading fw-normal lh-1">Featured Artwork Title. <span class="text-body-secondary" style="color: royalblue !important;">NFT/002.</span></h2>
             <p class="lead">Brief description of the work.</p>
             <p>Release date.<br>Price.</p>
-            <a href="/artwork" class="btn custom-button">Buy Now</a>
+            <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 2').id %>" class="btn custom-button">View Artwork</a>
           </div>
           </div>
         </div>
@@ -130,7 +150,7 @@
               </a>
               <div class="grid-caption">
                 <p>
-                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
+                  <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
                   0.03 ETH <span class="text-body-secondary">(mint complete)</span>
                 </p>
               </div>

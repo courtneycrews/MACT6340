@@ -23,7 +23,7 @@ app.get("/", async (req, res, next) => {
     //query the database for project records
     projects = await db.getAllProjects();
     console.log(projects);
-    res.render("index.ejs");
+    res.render("index.ejs", { projects }); // Pass the projects array to the template);
   })
   .catch(next);
 });
@@ -34,11 +34,12 @@ app.get("/gallery", (req, res) => {
 });
 
 app.get("/artwork/:id", (req, res) => {
-  let id = req.params.id;
-  if (id > data.length) {
-    throw new Error("No artwork exists");
-}
-res.render("artwork.ejs", { projectArray: data, which: id });
+  let id = parseInt(req.params.id, 10) - 1;
+  if (id >= projects.length || id < 0) {
+    return res.status(404).render("error.ejs", { message: "No artwork exists" });
+  }
+  console.log(projects[id]); // Debugging line
+  res.render("artwork.ejs", { artwork: projects[id] });
 });
 
 app.get("/contact", (req, res) => {
