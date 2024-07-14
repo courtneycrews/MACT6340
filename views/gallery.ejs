@@ -43,11 +43,22 @@
         </div>
     </section>
     <hr class="spacer">
-    <div class="container">
+    <div class="container marketing">
         <div class="row">
-            <% projectArray.forEach((item, index) => { %> 
+            <% projectArray.forEach((project, index) => { %> 
                 <div class="col-12 col-lg-6 mb-4">
-                    <%- include('projectCard', {ident: item.id, image: item.img_url, name: item.project_name}); %>
+                    <div class="featurette">
+                        <img class="featurette-image img-fluid mx-auto" src="<%= project.img_url %>" alt="<%= project.project_name %> thumbnail">
+                        <div class="featurette-content">
+                            <h2 class="featurette-heading fw-normal lh-1"><%= project.project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/<%= index + 1 %>.</span></h2>
+                            <p class="lead"><%= project.project_description %>.</p>
+                            <div class="eth-price">
+                                <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
+                                <span class="eth-amount"><%= project.price_eth %> ETH</span>
+                            </div>
+                            <a href="/artwork/<%= project.ident %>" class="btn custom-button">View Artwork</a>
+                        </div>
+                    </div>
                 </div>
             <% }); %>
         </div>

@@ -169,3 +169,33 @@ hr.spacer-triple {
   color: slategray; 
 }
 
+@media (max-width: 1024px) {
+  .featurette .featurette-content {
+      position: static;
+      opacity: 1;
+      background: none;
+      color: inherit;
+      padding: 10px 0;
+      transition: none;
+  }
+  .hero-container {
+      display: none;
+  }
+}
+
+.eth-price {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .eth-logo {
+        width: 25px !important;
+        height: 25px !important;
+        margin-right: 5px;
+    }
+
+    @media (min-width: 1024px) {
+        .eth-logo.featured {
+            filter: invert(1); /* This makes the logo white on full screen */
+        }
+    }
