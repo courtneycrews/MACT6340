@@ -1,6 +1,6 @@
 import mysql from "mysql2";
 import dotenv from "dotenv";
-dotenv.config();
+import fs from "fs";
 
 let pool;
 
@@ -15,17 +15,15 @@ export async function connect() {
     ":" +
     process.env.MYSQL_PORT +
     "/" +
-    process.env.MYSQL_DATABASE;
-    pool = mysql.createPool(
-        cString  //digital ocean sql server
-        // {
-        //     host: process.env.MYSQL_HOST,
-        //     user: process.env.MYSQL_USER,
-        //     password: process.env.MYSQL_PASSWORD,
-        //     database: process.env.MYSQL_DATABASE,
-        // }
-    )
-    .promise();
+    process.env.MYSQL_DATABASE +
+    "?ssl={" + JSON.stringify({ ca: fs.readFileSync(process.env.MYSQL_CA_CERT_PATH) }) + "}"; // Add SSL Support
+
+    pool = mysql.createPool({
+        uri: cString, // Use connection string with SSL
+        ssl: {
+            ca: fs.readFileSync(process.env.MYSQL_CA_CERT_PATH), // Load SSL certificate
+        }
+    }).promise();
 }
 
 export async function getAllProjects() {
