@@ -21,7 +21,7 @@ export async function connect() {
     pool = mysql.createPool({
         uri: cString, // Use connection string with SSL
         ssl: {
-            ca: fs.readFileSync(process.env.MYSQL_CA_CERT_PATH), // Load SSL certificate
+            rejectUnauthorized: true
         }
     }).promise();
 }
