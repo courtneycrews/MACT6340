@@ -3,18 +3,17 @@ import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
 
-dotenv.config();
+dotenv.config();  // Load .env variables
 
 let pool;
 
 export async function connect() {
-    // Ensure the SSL certificate path is resolved correctly
-    const sslCertPath = path.resolve(process.env.MYSQL_CA_CERT_PATH);
-    
-    // Verify that the file exists before attempting to read it
+    const sslCertPath = "/tmp/ca-certificate.crt";  // Temporary location in DO
+
+    // If the certificate doesn't exist, create it dynamically
     if (!fs.existsSync(sslCertPath)) {
-        console.error(`SSL certificate file not found: ${sslCertPath}`);
-        process.exit(1); // Stop the app if the certificate is missing
+        console.log(`🛠 Writing SSL certificate to: ${sslCertPath}`);
+        fs.writeFileSync(sslCertPath, process.env.MYSQL_CA_CERT.replace(/\\n/g, "\n"));
     }
 
     pool = mysql.createPool({
@@ -24,7 +23,7 @@ export async function connect() {
         database: process.env.MYSQL_DATABASE,
         port: process.env.MYSQL_PORT,
         ssl: {
-            ca: fs.readFileSync(sslCertPath) // Read the SSL certificate
+            ca: fs.readFileSync(sslCertPath)
         }
     }).promise();
 }
