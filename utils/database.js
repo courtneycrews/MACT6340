@@ -3,32 +3,46 @@ import dotenv from "dotenv";
 import fs from "fs";
 import path from "path";
 
-dotenv.config();  // Load .env variables
+dotenv.config();
 
 let pool;
 
 export async function connect() {
-    const sslCertPath = "/tmp/ca-certificate.crt";  // Temporary location in DO
+    try {
+        const sslCertPath = "/tmp/ca-certificate.crt";
 
-    // If the certificate doesn't exist, create it dynamically
-    if (!fs.existsSync(sslCertPath)) {
-        console.log(`🛠 Writing SSL certificate to: ${sslCertPath}`);
-        fs.writeFileSync(sslCertPath, process.env.MYSQL_CA_CERT.replace(/\\n/g, "\n"));
-    }
-
-    pool = mysql.createPool({
-        host: process.env.MYSQL_HOST,
-        user: process.env.MYSQL_USER,
-        password: process.env.MYSQL_PASSWORD,
-        database: process.env.MYSQL_DATABASE,
-        port: process.env.MYSQL_PORT,
-        ssl: {
-            ca: fs.readFileSync(sslCertPath)
+        // Log before writing the SSL cert
+        console.log(`🛠 Checking SSL certificate at: ${sslCertPath}`);
+        
+        if (!fs.existsSync(sslCertPath)) {
+            console.log(`⚠️ SSL certificate missing, writing to file...`);
+            fs.writeFileSync(sslCertPath, process.env.MYSQL_CA_CERT.replace(/\\n/g, "\n"));
         }
-    }).promise();
+
+        console.log(`✅ SSL certificate exists. Attempting to connect to MySQL...`);
+
+        pool = mysql.createPool({
+            host: process.env.MYSQL_HOST,
+            user: process.env.MYSQL_USER,
+            password: process.env.MYSQL_PASSWORD,
+            database: process.env.MYSQL_DATABASE,
+            port: process.env.MYSQL_PORT,
+            ssl: {
+                ca: fs.readFileSync(sslCertPath)
+            }
+        }).promise();
+
+        console.log(`✅ Successfully connected to MySQL database.`);
+    } catch (error) {
+        console.error(`❌ Database connection failed:`, error);
+    }
 }
 
 export async function getAllProjects() {
-    const [rows] = await pool.query("SELECT * FROM projects;");
-    return rows;
+    try {
+        const [rows] = await pool.query("SELECT * FROM projects;");
+        return rows;
+    } catch (error) {
+        console.error(`❌ Query failed:`, error);
+    }
 }
