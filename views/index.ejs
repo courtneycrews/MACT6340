@@ -11,7 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- ✅ Removed integrity -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 
@@ -29,26 +32,25 @@
     }
 
     #canvas1 {
-    background: whitesmoke;
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    filter: blur(7px) contrast(15);
-    z-index: 1;
-   }
+      background: whitesmoke;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: blur(7px) contrast(15);
+      z-index: 1;
+    }
 
-   .hero-headline, .hero-text {
-            color: black;
-            position: relative;
-            z-index: 10;
-            text-align: center;
-        }
+    .hero-headline, .hero-text {
+      color: black;
+      position: relative;
+      z-index: 10;
+      text-align: center;
+    }
     </style>
   </head>
-
 
   <body>
     <div class="navbar navbar-expand-lg">
@@ -76,158 +78,77 @@
       <div class="row">
         <div class="col-12 col-lg-6 mb-4">
           <div class="featurette">
-          <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 1').img_url %>" alt="Project 1 thumbnail">
-          <div class="featurette-content">
-            <h2 class="featurette-heading fw-normal lh-1"><%= projects.find(project => project.project_name === 'Project 1').project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/001.</span></h2>
-            <p class="lead"><%= projects.find(project => project.project_name === 'Project 1').project_description %>.</p>
-            <div class="eth-price">
-              <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
-              <span class="eth-amount"><%= projects.find(project => project.project_name === 'Project 1').price_eth %> ETH</span>
+            <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 1').img_url %>" alt="Project 1 thumbnail">
+            <div class="featurette-content">
+              <h2 class="featurette-heading fw-normal lh-1"><%= projects.find(project => project.project_name === 'Project 1').project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/001.</span></h2>
+              <p class="lead"><%= projects.find(project => project.project_name === 'Project 1').project_description %>.</p>
+              <div class="eth-price">
+                <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
+                <span class="eth-amount"><%= projects.find(project => project.project_name === 'Project 1').price_eth %> ETH</span>
+              </div>
+              <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 1').id %>" class="btn custom-button">View Artwork</a>
             </div>
-            <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 1').id %>" class="btn custom-button">View Artwork</a>
           </div>
         </div>
-      </div>
         <div class="col-12 col-lg-6 mb-4">
           <div class="featurette">
-          <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 2').img_url %>" alt="Project 2 thumbnail">
-          <div class="featurette-content">
-            <h2 class="featurette-heading fw-normal lh-1"><%= projects.find(project => project.project_name === 'Project 2').project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/002.</span></h2>
-            <p class="lead"><%= projects.find(project => project.project_name === 'Project 2').project_description %>.</p>
-            <div class="eth-price">
-              <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
-              <span class="eth-amount"><%= projects.find(project => project.project_name === 'Project 1').price_eth %> ETH</span>
+            <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 2').img_url %>" alt="Project 2 thumbnail">
+            <div class="featurette-content">
+              <h2 class="featurette-heading fw-normal lh-1"><%= projects.find(project => project.project_name === 'Project 2').project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/002.</span></h2>
+              <p class="lead"><%= projects.find(project => project.project_name === 'Project 2').project_description %>.</p>
+              <div class="eth-price">
+                <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
+                <span class="eth-amount"><%= projects.find(project => project.project_name === 'Project 2').price_eth %> ETH</span>
+              </div>
+              <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 2').id %>" class="btn custom-button">View Artwork</a>
             </div>
-            <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 2').id %>" class="btn custom-button">View Artwork</a>
-          </div>
           </div>
         </div>
       </div>
     </div>
 
-      <hr class="spacer-double">
+    <hr class="spacer-double">
 
-      <div class="hero-headline text-center">
-        <h2 class="display-6 dm-serif-text-regular">Popular Works</h2>
+    <footer>
+      <div class="footer-container px-5">
+        <%- include('footer'); %>
       </div>
+    </footer>
 
-      <hr class="spacer">
+    <!-- ✅ Removed integrity -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-6 col-md-3 mb-4">
-            <div class="grid-thumbnail">
-              <a href="./artwork.ejs">
-              <img src="./images/placeholder.jpg" class="img-fluid" alt="Black and white flow field placeholder image">
-              </a>
-              <div class="grid-caption">
-                <p>
-                  <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
-                  0.03 ETH <span class="text-body-secondary">(mint complete)</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="grid-thumbnail">
-              <a href="./artwork.ejs">
-              <img src="./images/placeholder.jpg" class="img-fluid" alt="Black and white flow field placeholder image">
-              </a>
-              <div class="grid-caption">
-                <p>
-                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
-                  0.03 ETH <span class="text-body-secondary">(86/100 minted)</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="grid-thumbnail">
-              <a href="./artwork.ejs">
-              <img src="./images/placeholder.jpg" class="img-fluid" alt="Black and white flow field placeholder image">
-              </a>
-              <div class="grid-caption">
-                <p>
-                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
-                  0.03 ETH <span class="text-body-secondary">(74/100 minted)</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-md-3 mb-4">
-            <div class="grid-thumbnail">
-              <a href="./artwork.ejs">
-              <img src="./images/placeholder.jpg" class="img-fluid" alt="Black and white flow field placeholder image">
-              </a>
-              <div class="grid-caption">
-                <p>
-                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
-                  0.03 ETH <span class="text-body-secondary">(72/100 minted)</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <script type="module" src="./js/index.js"></script>
+    <script src="./js/gooey.js"></script>
 
-      <hr class="spacer-triple">
-
-      <div id="about-artist" class="container">
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">About the Artist. <span class="text-body-secondary" style="color: royalblue !important;">Courtney.</span></h2>
-          <p class="lead">Master’s Student, Creative Technology, Southern Methodist University<br> BA, Art History, California State University, Long Beach</p>
-          <p> With a background in art history and museum administration, my artwork blends tradition, nature, and technology, creating a harmonious fusion that reflects my educational background and passion for innovation.</p>
-          <a href="/contact" class="btn custom-nav-button">Contact Me</a>
-        </div>
-        <div class="col-md-5 order-md-1 mt-3 mt-md-0">
-          <img class="featurette-image img-fluid mx-auto" src="./images/courtney_bw.jpg" width="500" height="500" alt="Black and white portrait of Courtney Crews with a turned head looking at the camera. She has long dark hair, light skin, and a slight smirk, wearing a dark colored top in high contrast with the stark white background.">
-        </div>
-      </div>
-    </div>
-
-      
-      <hr class="spacer">
-
-      </main>
-      
-      <footer>
-        <div class="footer-container px-5">
-          <%- include('footer'); %>
-        </div>
-      </footer>
-
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-      <script type="module" src="./js/index.js"></script>
-      <script src="./js/gooey.js"></script>
-      <script>
-        function isMobileDevice() {
-            return /Mobi|Android|iPhone/i.test(navigator.userAgent);
-        }
-    
-        window.onload = function() {
-            if (isMobileDevice()) {
-                document.getElementById('canvas1').style.display = 'none';
-                document.getElementById('mobile-hero').style.display = 'block';
-            } else {
-                document.getElementById('canvas1').style.display = 'block';
-                document.getElementById('mobile-hero').style.display = 'none';
-                // Initialize canvas for desktop here
-            }
-        };
+    <script>
+      function isMobileDevice() {
+          return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+      }
+  
+      window.onload = function() {
+          if (isMobileDevice()) {
+              document.getElementById('canvas1').style.display = 'none';
+              document.getElementById('mobile-hero').style.display = 'block';
+          } else {
+              document.getElementById('canvas1').style.display = 'block';
+              document.getElementById('mobile-hero').style.display = 'none';
+          }
+      };
     </script>
-      <script>
-        document.querySelectorAll('.featurette').forEach(function(featurette) {
-          featurette.addEventListener('touchstart', function() {
-            this.classList.add('touch-active');
-          });
-          featurette.addEventListener('touchend', function() {
-            setTimeout(() => {
-              this.classList.remove('touch-active');
-            }, 5000); // Keep the featurette content visible for 5 seconds
-          });
-        });
-      </script>
 
-</body>
+    <script>
+      document.querySelectorAll('.featurette').forEach(function(featurette) {
+        featurette.addEventListener('touchstart', function() {
+          this.classList.add('touch-active');
+        });
+        featurette.addEventListener('touchend', function() {
+          setTimeout(() => {
+            this.classList.remove('touch-active');
+          }, 5000);
+        });
+      });
+    </script>
+
+  </body>
 </html>
