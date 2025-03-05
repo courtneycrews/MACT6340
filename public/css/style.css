@@ -9,6 +9,9 @@ html, body {
 
 *, *:before, *:after {
   box-sizing: border-box;
+}
+
+img, video {
   max-width: 100%;
 }
 
@@ -24,11 +27,19 @@ html, body {
   font-style: italic;
 }
 
+::placeholder {
+  font-size: 0.9rem; /* Match the helper text */
+  color: #6c757d; /* Bootstrap secondary text color */
+  opacity: 1; /* Ensure it stays visible in some browsers */
+}
+
 .navbar {
   position: static;
   width: 100%;
   background-color: transparent;
   z-index: 10;
+  padding-left: 1rem; /* Adds space on the left */
+  padding-right: 1rem; /* Ensures balance */
 }
 
 .navbar .nav-link,
@@ -150,11 +161,12 @@ hr.spacer-triple {
 }
 
 .custom-border-top {
-  border-top: 1px solid slategray; /* simple divider */
+  border-top: .75px solid slategray; /* simple divider */
 }
 
 .footer-container {
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   padding-top: 8px;
   padding-bottom: 20px;
   background-color: whitesmoke;
@@ -169,7 +181,8 @@ hr.spacer-triple {
   color: slategray; 
 }
 
-@media (max-width: 1024px) {
+/* Interactive hero */
+/* @media (max-width: 1024px) {
   .featurette .featurette-content {
       position: static;
       opacity: 1;
@@ -181,7 +194,7 @@ hr.spacer-triple {
   .hero-container {
       display: none;
   }
-}
+} */
 
 .eth-price {
         display: flex;

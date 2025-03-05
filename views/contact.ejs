@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 
-    <title>Contact - Courtney Michelle</title>
+    <title>contact - c.m.crews</title>
     
     <style>
       html, body {
@@ -31,7 +31,10 @@
     .hero-container {
       width: 100vw;
       height: 250px;
-      overflow: hidden;
+      background-image: url("./images/hero-image1.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       position: relative;
     }
     </style>
@@ -45,33 +48,34 @@
     <section>
       <div class="divider"></div>
       <div id="contact-headline" class="beginning pt-5 m-2 text-dark text-center">
-        <h1 class="display-5 dm-serif-text-regular">Questions or Comments?</h1>
-        <p class="lead text-body-secondary">Send me a message using the form below.</p>
+        <!-- <h1 class="display-5 dm-serif-text-regular">Questions or Comments?</h1> -->
+        <p class="text-body-secondary">Contact Courtney Michelle Crews using the form below.</p>
       </div>
     </section>
-  </div>
 
 
-        <container>
-          <section>
-            <div class="row justify-content-center text-start form-holder">
-              <div class="col-10">
-              <form id="contact-form" class="p-3 needs-validation rounded" novalidate>
-                <!-- First and Last Name Fields -->
-              <div class="row justify-content-start mb-2">
+      <div class="container">
+        <section>
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+
+        <form id="contact-form" class="p-3 px-md-5 needs-validation rounded" novalidate>
+
+              <!-- First and Last Name Fields -->
+              <div class="row justify-content-center mb-2">
                 <div class="row">
                   <div class="col m-2">
                     <label for="contact-first" class="form-label">First name</label>
-                    <input id="contact-first" type="text" class="form-control" placeholder="First name" aria-label="First name" required>
+                    <input id="contact-first" type="text" class="form-control" aria-label="First name" required>
                     <div class="invalid-feedback">
-                      Please enter your first name.
+                      Please enter your first name
                     </div>
                   </div>
                   <div class="col m-2">
                     <label for="contact-last" class="form-label">Last name</label>
-                    <input id="contact-last" type="text" class="form-control" placeholder="Last name" aria-label="Last name" required>
+                    <input id="contact-last" type="text" class="form-control" aria-label="Last name" required>
                     <div class="invalid-feedback">
-                      Please enter your last name.
+                      Please enter your last name
                   </div>
                 </div>
               </div>
@@ -80,9 +84,10 @@
               <div class="row">
                 <div class="col m-2">
                   <label for="contact-email-addr" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="contact-email-addr" aria-describedby="contact-email-help" placeholder="name@example.com" required>
+                  <p class="text-body-secondary small">Please make sure your email address is entered correctly</p>
+                  <input type="email" class="form-control" id="contact-email-addr" aria-describedby="contact-email-help" required>
                   <div class="invalid-feedback" id="contact-email-help">
-                    Format should be example@example.com.
+                    Format should be example@example.com
                   </div>
                 </div>
               </div>
@@ -92,9 +97,9 @@
                 <div class="col m-2">
                   <label for="contact-msg" class="form-label">Message</label>
                   <div class="input-group has-validation"> 
-                  <textarea class="form-control" id="contact-msg"  placeholder="Please enter your message up to 1000 characters." rows="7" maxlength="1000" aria-describedby="contact-msg-help" required></textarea>
+                  <textarea class="form-control" id="contact-msg"  placeholder="Please enter your message up to 1000 characters" rows="7" maxlength="1000" aria-describedby="contact-msg-help" required></textarea>
                   <div id="contact-msg-help" class="invalid-feedback">
-                    Please enter your message up to 1000 characters.
+                    Please enter your message up to 1000 characters
                 </div>
               </div>
             </div>
@@ -108,16 +113,20 @@
               <span class="m-2" id="result"></span>
             </div>
           </div>
+
         </form>
-        <hr class="spacer-double">
+        <hr class="spacer">
       </div>
     </div>
-</section>
-        </container>
+  </section>
+</div>
     
-        <div class="footer-container px-5">
-          <%- include('footer'); %>
-        </div>
+
+<div class="container">
+  <div class="footer-container px-5">
+    <%- include('footer'); %>
+  </div>
+</div>
          
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -11,17 +11,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed&display=swap" rel="stylesheet">
-    
-    <!-- ✅ Removed integrity -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 
-    <title>Home - Courtney Michelle</title>
+    <title>coming soon - c.m. crews</title>
 
     <style>
-    .hero-container {
+
+    /* Interactive hero container */
+    /* .hero-container {
       width: 100vw;
       height: 575px;
       overflow: hidden;
@@ -29,35 +28,123 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    } */
+
+    /* #canvas1 {
+    background: whitesmoke;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(7px) contrast(15);
+    z-index: 1;
+   } */
+
+   /* .hero-headline, .hero-text {
+            color: black;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        } */
+
+  .hero-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 0; /* Add space above and below */
     }
 
-    #canvas1 {
-      background: whitesmoke;
-      width: 100%;
-      height: 100%;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      filter: blur(7px) contrast(15);
-      z-index: 1;
+  .hero-container {
+        position: relative;
+        width: 90%;
+        max-width: 1200px;
+        aspect-ratio: 16 /9;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+  .hero-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-images img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+
+  .hero-images img.active {
+    opacity: 1; /* Show the active image */
+  }
+
+  .hero-text {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 10;
+}
+
+.hero-text h1 {
+  font-size: 2rem; /* Adjust size as needed */
+  margin-bottom: 5px;
+}
+
+.hero-subtext {
+  font-size: 1rem; /* Smaller font for translation */
+  font-weight: normal;
+  opacity: 0.8; /* Slight transparency for subtlety */
+}
+
+  @media (max-width: 768px) {
+    .hero-container {
+        aspect-ratio: 9 / 16; /* Adjust to vertical */
+        max-width: 400px; /* Keeps hero image from being too wide */
     }
 
-    .hero-headline, .hero-text {
-      color: black;
-      position: relative;
-      z-index: 10;
-      text-align: center;
+    .hero-text {
+        font-size: 1.5rem;
     }
+}
+
     </style>
   </head>
+
 
   <body>
     <div class="navbar navbar-expand-lg">
       <%- include('header'); %>
     </div>
 
+    <!-- Hero Section with Static Image -->
     <header>
+      <div class="hero-wrapper">
+        <div class="hero-container">
+          <div class="hero-text">
+          <h1>Il n’y a pas de hors-texte</h1>
+          <p class="hero-subtext">(Nothing exists beyond the text)</p>
+          </div>
+          <div class="hero-images">
+            <img src="./images/hero-image1.jpg" class="active desktop-img">
+            <img src="./images/hero-image2.jpg" class="desktop-img">
+            <img src="./images/hero-image3.jpg" class="desktop-img">
+            <img src="./images/hero-image1-vertical.jpg" class="mobile-img">
+            <img src="./images/hero-image2-vertical.jpg" class="mobile-img">
+            <img src="./images/hero-image3-vertical.jpg" class="mobile-img">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- <header>
         <div class="hero-container">
             <canvas id="canvas1"></canvas>
         </div>
@@ -78,77 +165,180 @@
       <div class="row">
         <div class="col-12 col-lg-6 mb-4">
           <div class="featurette">
-            <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 1').img_url %>" alt="Project 1 thumbnail">
-            <div class="featurette-content">
-              <h2 class="featurette-heading fw-normal lh-1"><%= projects.find(project => project.project_name === 'Project 1').project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/001.</span></h2>
-              <p class="lead"><%= projects.find(project => project.project_name === 'Project 1').project_description %>.</p>
-              <div class="eth-price">
-                <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
-                <span class="eth-amount"><%= projects.find(project => project.project_name === 'Project 1').price_eth %> ETH</span>
-              </div>
-              <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 1').id %>" class="btn custom-button">View Artwork</a>
+          <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 1').img_url %>" alt="Project 1 thumbnail">
+          <div class="featurette-content">
+            <h2 class="featurette-heading fw-normal lh-1"><%= projects.find(project => project.project_name === 'Project 1').project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/001.</span></h2>
+            <p class="lead"><%= projects.find(project => project.project_name === 'Project 1').project_description %>.</p>
+            <div class="eth-price">
+              <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
+              <span class="eth-amount"><%= projects.find(project => project.project_name === 'Project 1').price_eth %> ETH</span>
             </div>
+            <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 1').id %>" class="btn custom-button">View Artwork</a>
           </div>
         </div>
+      </div>
         <div class="col-12 col-lg-6 mb-4">
           <div class="featurette">
-            <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 2').img_url %>" alt="Project 2 thumbnail">
-            <div class="featurette-content">
-              <h2 class="featurette-heading fw-normal lh-1"><%= projects.find(project => project.project_name === 'Project 2').project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/002.</span></h2>
-              <p class="lead"><%= projects.find(project => project.project_name === 'Project 2').project_description %>.</p>
-              <div class="eth-price">
-                <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
-                <span class="eth-amount"><%= projects.find(project => project.project_name === 'Project 2').price_eth %> ETH</span>
-              </div>
-              <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 2').id %>" class="btn custom-button">View Artwork</a>
+          <img class="featurette-image img-fluid mx-auto" src="<%= projects.find(project => project.project_name === 'Project 2').img_url %>" alt="Project 2 thumbnail">
+          <div class="featurette-content">
+            <h2 class="featurette-heading fw-normal lh-1"><%= projects.find(project => project.project_name === 'Project 2').project_name %>. <span class="text-body-secondary" style="color: royalblue !important;">NFT/002.</span></h2>
+            <p class="lead"><%= projects.find(project => project.project_name === 'Project 2').project_description %>.</p>
+            <div class="eth-price">
+              <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" class="eth-logo featured">
+              <span class="eth-amount"><%= projects.find(project => project.project_name === 'Project 1').price_eth %> ETH</span>
             </div>
+            <a href="/artwork/<%= projects.find(project => project.project_name === 'Project 2').id %>" class="btn custom-button">View Artwork</a>
+          </div>
           </div>
         </div>
       </div>
     </div>
 
-    <hr class="spacer-double">
+      <hr class="spacer-double">
 
-    <footer>
-      <div class="footer-container px-5">
-        <%- include('footer'); %>
+      <div class="hero-headline text-center">
+        <h2 class="display-6 dm-serif-text-regular">Popular Works</h2>
       </div>
-    </footer>
 
-    <!-- ✅ Removed integrity -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+      <hr class="spacer">
 
-    <script type="module" src="./js/index.js"></script>
-    <script src="./js/gooey.js"></script>
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-md-3 mb-4">
+            <div class="grid-thumbnail">
+              <a href="./artwork.ejs">
+              <img src="./images/placeholder.jpg" class="img-fluid" alt="Black and white flow field placeholder image">
+              </a>
+              <div class="grid-caption">
+                <p>
+                  <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
+                  0.03 ETH <span class="text-body-secondary">(mint complete)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="grid-thumbnail">
+              <a href="./artwork.ejs">
+              <img src="./images/placeholder.jpg" class="img-fluid" alt="Black and white flow field placeholder image">
+              </a>
+              <div class="grid-caption">
+                <p>
+                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
+                  0.03 ETH <span class="text-body-secondary">(86/100 minted)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="grid-thumbnail">
+              <a href="./artwork.ejs">
+              <img src="./images/placeholder.jpg" class="img-fluid" alt="Black and white flow field placeholder image">
+              </a>
+              <div class="grid-caption">
+                <p>
+                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
+                  0.03 ETH <span class="text-body-secondary">(74/100 minted)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3 mb-4">
+            <div class="grid-thumbnail">
+              <a href="./artwork.ejs">
+              <img src="./images/placeholder.jpg" class="img-fluid" alt="Black and white flow field placeholder image">
+              </a>
+              <div class="grid-caption">
+                <p>
+                  <img src="./images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;">
+                  0.03 ETH <span class="text-body-secondary">(72/100 minted)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <script>
-      function isMobileDevice() {
-          return /Mobi|Android|iPhone/i.test(navigator.userAgent);
-      }
-  
-      window.onload = function() {
-          if (isMobileDevice()) {
-              document.getElementById('canvas1').style.display = 'none';
-              document.getElementById('mobile-hero').style.display = 'block';
-          } else {
-              document.getElementById('canvas1').style.display = 'block';
-              document.getElementById('mobile-hero').style.display = 'none';
-          }
-      };
+      <hr class="spacer-triple">
+
+      <div id="about-artist" class="container">
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading fw-normal lh-1">About the Artist. <span class="text-body-secondary" style="color: royalblue !important;">Courtney.</span></h2>
+          <p class="lead">Master’s Student, Creative Technology, Southern Methodist University<br> BA, Art History, California State University, Long Beach</p>
+          <p> With a background in art history and museum administration, my artwork blends tradition, nature, and technology, creating a harmonious fusion that reflects my educational background and passion for innovation.</p>
+          <a href="/contact" class="btn custom-nav-button">Contact Me</a>
+        </div>
+        <div class="col-md-5 order-md-1 mt-3 mt-md-0">
+          <img class="featurette-image img-fluid mx-auto" src="./images/courtney_bw.jpg" width="500" height="500" alt="Black and white portrait of Courtney Crews with a turned head looking at the camera. She has long dark hair, light skin, and a slight smirk, wearing a dark colored top in high contrast with the stark white background.">
+        </div>
+      </div>
+    </div>
+
+      
+      <hr class="spacer">
+
+      </main> -->
+      
+      <div class="container">
+        <div class="footer-container px-5">
+          <%- include('footer'); %>
+        </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      <script type="module" src="./js/index.js"></script>
+      <script src="./js/gooey.js"></script>
+      <script>
+        function isMobileDevice() {
+            return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+        }
+    
+        window.onload = function() {
+            if (isMobileDevice()) {
+                document.getElementById('canvas1').style.display = 'none';
+                document.getElementById('mobile-hero').style.display = 'block';
+            } else {
+                document.getElementById('canvas1').style.display = 'block';
+                document.getElementById('mobile-hero').style.display = 'none';
+                // Initialize canvas for desktop here
+            }
+        };
     </script>
-
-    <script>
-      document.querySelectorAll('.featurette').forEach(function(featurette) {
-        featurette.addEventListener('touchstart', function() {
-          this.classList.add('touch-active');
+      <script>
+        document.querySelectorAll('.featurette').forEach(function(featurette) {
+          featurette.addEventListener('touchstart', function() {
+            this.classList.add('touch-active');
+          });
+          featurette.addEventListener('touchend', function() {
+            setTimeout(() => {
+              this.classList.remove('touch-active');
+            }, 5000); // Keep the featurette content visible for 5 seconds
+          });
         });
-        featurette.addEventListener('touchend', function() {
-          setTimeout(() => {
-            this.classList.remove('touch-active');
-          }, 5000);
-        });
-      });
-    </script>
+      </script>
 
-  </body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const desktopImages = document.querySelectorAll(".desktop-img");
+    const mobileImages = document.querySelectorAll(".mobile-img");
+
+    let currentIndex = 0;
+
+    function updateImage() {
+      const isMobile = window.innerWidth <= 768;
+      const images = isMobile ? mobileImages : desktopImages;
+
+      images.forEach(img => img.classList.remove("active"));
+      images[currentIndex].classList.add("active");
+
+      currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    updateImage();
+    setInterval(updateImage, 5000);
+  });
+</script>
+
+</body>
 </html>
