@@ -1,90 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="author" content="Courtney Crews">
-        <meta name="description" content="A page to purchase artwork.">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <meta name="author" content="Courtney Crews">
+    <meta name="description" content="A personal NFT mint.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
 
-        <title>artwork - c.m.crews</title>
+    <title>artwork - c.m. crews</title>
 
-        <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        * {
-            box-sizing: border-box;
-        }
-        .hero-container {
-            width: 100vw;
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
+    <style>
+    .artwork-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .artwork-image {
+        max-width: 100%;
+        height: auto;
+    }
+        
+    .artwork-details {
+        padding-left: 20px;
+    }
+    
+    @media (max-width: 1024px) {
         .artwork-container {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .artwork-image {
-            max-width: 100%;
-            height: auto;
+            flex-direction: column;
+            align-items: center;
         }
         .artwork-details {
-            padding-left: 20px;
+            padding-left: 0;
+            margin-top: 20px;
+            text-align: left;
         }
-        @media (max-width: 1024px) {
-            .artwork-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .artwork-details {
-                padding-left: 0;
-                margin-top: 20px;
-                text-align: left;
-            }
-        }
-        </style>
-    </head>
+    }
+    </style>
+</head>
 
-    <body>
-        <div class="navbar navbar-expand-lg">
-            <%- include('header'); %>
-        </div>
+<body>
+    <div class="navbar navbar-expand-lg">
+        <%- include('header'); %>
+    </div>
 
-        <hr class="spacer">
+    <main>
+    <hr class="spacer">
 
-        <div class="container artwork-container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img class="artwork-image" src="<%= artwork.img_url %>" alt="<%= artwork.project_name %>">
-                </div>
-                <div class="col-md-6 artwork-details">
-                    <h1 class="display-4 dm-serif-text-regular"><%= artwork.project_name %></h1>
-                    <p><%= artwork.project_description %></p>
-                    <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;"><%= artwork.price_eth %> ETH <span class="text-body-secondary">(<%= artwork.active %>/<%= artwork.quantity %>)</span></p>
-                    <a href="" class="btn custom-button">Buy Now</a>
-                </div>
+    <div class="container artwork-container">
+        <div class="row">
+            <div class="col-md-6">
+                <img class="artwork-image" src="<%= artwork.img_url %>" alt="<%= artwork.project_name %>">
+            </div>
+            <div class="col-md-6 artwork-details">
+                <h1 class="display-4 dm-serif-text-regular"><%= artwork.project_name %></h1>
+                <p><%= artwork.project_description %></p>
+                <img src="/images/icons8-ethereum-logo.svg" alt="Ethereum Logo" style="width: 25px; height: 25px;"><%= artwork.price_eth %> ETH <span class="text-body-secondary">(<%= artwork.active %>/<%= artwork.quantity %>)</span></p>
+                <a href="" class="btn custom-button">Buy Now</a>
             </div>
         </div>
+    </div>
+    </main>
 
-        <hr class="spacer">
-        <div class="footer-container px-5">
-            <%- include('footer'); %>
-        </div>
-        <script type="module" src="/js/index.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    </body>
+    <footer class="footer-container">
+        <%- include('footer'); %>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/index.js"></script>
+</body>
 </html>

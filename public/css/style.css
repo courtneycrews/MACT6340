@@ -1,214 +1,252 @@
+/* --------------------------------------------------
+ * VARIABLES
+ * -------------------------------------------------- */
+ :root {
+  /* Colors */
+  --color-background: whitesmoke;
+  --color-text: #000;
+  --color-accent: royalblue;
+  --color-secondary: #333;
+  --color-tertiary: whitesmoke; 
+  --color-hover: #000;
+  
+  /* Spacing */
+  --spacer-md: 20px;
+  
+  /* Typography */
+  --font-primary: "Open Sans", sans-serif;
+  --font-display: "Antic Didone", serif;
+  
+  /* Common Transitions */
+  --transition-default: 0.3s ease;
+}
+
+/* --------------------------------------------------
+ * BASE STYLES
+ * -------------------------------------------------- */
 html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "Reddit Sans Condensed", sans-serif;
-  background-color: whitesmoke;
-  color: rgb(var(--bs-tertiary-color-rgb));
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  box-sizing: border-box;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+main {
+  flex: 1; /* Makes the main content push the footer down */
 }
 
 *, *:before, *:after {
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 img, video {
   max-width: 100%;
+  height: auto;
 }
 
-.dm-serif-text-regular {
-  font-family: "DM Serif Text", serif;
-  font-weight: 400;
-  font-style: normal;
+/* --------------------------------------------------
+ * TYPOGRAPHY
+ * -------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
 }
 
-.dm-serif-text-regular-italic {
-  font-family: "DM Serif Text", serif;
-  font-weight: 400;
-  font-style: italic;
+/* Global paragraph styling */
+p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 16px;
 }
 
-::placeholder {
-  font-size: 0.9rem; /* Match the helper text */
-  color: #6c757d; /* Bootstrap secondary text color */
-  opacity: 1; /* Ensure it stays visible in some browsers */
-}
+.strong-text { font-weight: 500; }
+.italic-text { font-style: italic; }
 
-.navbar {
+/* --------------------------------------------------
+ * NAVIGATION
+ * -------------------------------------------------- */
+ .navbar {
   position: static;
   width: 100%;
+  padding: 0.5rem 1rem;
   background-color: transparent;
   z-index: 10;
-  padding-left: 1rem; /* Adds space on the left */
-  padding-right: 1rem; /* Ensures balance */
+  transition: background-color var(--transition-default);
 }
 
-.navbar .nav-link,
 .navbar .navbar-brand {
-  color: black;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 24px;
+  transition: color var(--transition-default);
+}
+
+.navbar .nav-link {
+  color: var(--color-secondary);
+  font-size: 14px;
+  font-weight: 300;
+  transition: color var(--transition-default), font-weight var(--transition-default);
 }
 
 .navbar .nav-link:hover,
 .navbar .navbar-brand:hover {
-  color: royalblue;
+  color: var(--color-accent) !important;
+  font-weight: 500;
 }
 
-hr.spacer {
+/* --------------------------------------------------
+ * SPACING UTILITIES
+ * -------------------------------------------------- */
+ hr.spacer {
   border: none;
-  height: var(--spacer-height, 40px); /* Default height */
+  height: calc(var(--spacer-md) * attr(data-scale number, 1));
   margin: 0;
 }
 
-hr.spacer-double {
-  border: none;
-  height: calc(var(--spacer-height, 40px) * 2); /* Double the height */
+/* --------------------------------------------------
+ * GALLERY CARDS
+ * -------------------------------------------------- */
+ .gallery-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0px 60px;
 }
 
-hr.spacer-triple {
-  border: none;
-  height: calc(var(--spacer-height, 40px) * 3); /* Triple the height */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 columns on large, 2 on medium, 1 on small */
+  gap: 20px;
+  justify-content: center;
 }
 
-.featurette {
-  position: relative;
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: whitesmoke;
   overflow: hidden;
-  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease-in-out;
 }
 
-.featurette .featurette-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+.gallery-card:hover {
+  transform: translateY(-5px);
 }
 
-.featurette:hover .featurette-content {
-  opacity: 1;
-}
-
-.featurette img {
+.gallery-card img {
   width: 100%;
   height: auto;
-  display: block;
-}
-
-.featurette-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.featurette-content {
-    text-align: left;
-    padding: 20px;
-}
-
-.grid-thumbnail img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
-.grid-caption {
+.gallery-info {
+  padding: 15px;
   text-align: left;
-  color: #000;
-  padding-top: 10px;
 }
 
-.custom-button,
-.custom-nav-button,
-.custom-featurette-button {
-  padding: 6px 12px;
-  font-size: 16px;
+.gallery-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.gallery-description {
+  font-size: 14px;
+  color: var(--color-secondary);
+  margin-bottom: 10px;
+}
+
+
+/* --------------------------------------------------
+ * BUTTONS
+ * -------------------------------------------------- */
+ .custom-button {
+  font-family: var(--font-primary);
+  font-size: 13.5px;
+  font-weight: 400;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  text-decoration: none;
+  padding: 8px 16px;
   border-radius: 8px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.custom-button {
-  background-color: royalblue;
-  color: whitesmoke;
+  cursor: pointer;
+  transition: background-color var(--transition-default), color var(--transition-default);
 }
 
 .custom-button:hover {
-  background-color: black;
-  color: whitesmoke;
+  background-color: var(--color-hover);
+  color: white;
 }
 
-.custom-nav-button {
-  background-color: transparent;
-  color: royalblue;
-  border: 1px solid royalblue;
-}
-
-.custom-nav-button:hover {
-  background-color: royalblue;
-  color: whitesmoke;
-}
-
-.custom-featurette-button {
-  background-color: transparent;
-  color: whitesmoke;
-  border: 1px solid whitesmoke;
-}
-
-.custom-featurette-button:hover {
-  background-color: royalblue;
-  color: whitesmoke;
-}
-
-.custom-border-top {
-  border-top: .75px solid slategray; /* simple divider */
-}
-
-.footer-container {
+/* --------------------------------------------------
+ * FOOTER
+ * -------------------------------------------------- */
+ .footer-container {
   width: 100%;
-  max-width: 100%;
-  padding-top: 8px;
-  padding-bottom: 20px;
-  background-color: whitesmoke;
-  box-sizing: border-box;
+  background-color: var(--color-background);
+  padding: 20px 0 0;
+  position: relative;
+  bottom: auto;
 }
 
-.icon-gray {
-  fill: slategray;
+.footer-content {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 20px 1rem;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  border-top: 1px solid rgba(112, 128, 144, 0.5);
 }
 
 .footer-text {
-  color: slategray; 
+  color: var(--color-secondary); 
+  font-size: 12px;
 }
 
-/* Interactive hero */
-/* @media (max-width: 1024px) {
-  .featurette .featurette-content {
-      position: static;
-      opacity: 1;
-      background: none;
-      color: inherit;
-      padding: 10px 0;
-      transition: none;
-  }
-  .hero-container {
-      display: none;
-  }
-} */
+.icon-gray {
+  fill: var(--color-secondary);
+}
 
+@media (max-width: 768px) {
+  .footer-container {
+    position: static;
+    margin-top: 0 !important;
+    padding-top: 10px;
+  }
+}
+
+/* --------------------------------------------------
+ * ETHEREUM PRICE DISPLAY
+ * -------------------------------------------------- */
 .eth-price {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-    .eth-logo {
-        width: 25px !important;
-        height: 25px !important;
-        margin-right: 5px;
-    }
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-    @media (min-width: 1024px) {
-        .eth-logo.featured {
-            filter: invert(1); /* This makes the logo white on full screen */
-        }
-    }
+.eth-logo {
+  width: 25px !important;
+  height: 25px !important;
+  margin-right: 5px;
+}
+
+/* --------------------------------------------------
+ * MEDIA QUERIES
+ * -------------------------------------------------- */
+@media (min-width: 1024px) {
+  .eth-logo.featured {
+    filter: invert(1); /* Makes the logo white on full screen */
+  }
+}

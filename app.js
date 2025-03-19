@@ -16,23 +16,32 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.static("public"));
 
-app.get("/", async (req, res, next) => {
-  await db
-  .connect()
-  .then(async() => {
-    //query the database for project records
-    projects = await db.getAllProjects();
-    console.log(projects);
-    res.render("index.ejs", { projects }); // Pass the projects array to the template);
-  })
-  .catch(next);
+// Route for Temp Home Page
+app.get("/", (req, res) => {
+  console.log(projects);
+  res.render("temp.ejs", { projectArray: projects });
 });
 
+// Route for Home Page
+// app.get("/", async (req, res, next) => {
+//   await db
+//   .connect()
+//   .then(async() => {
+//     //query the database for project records
+//     projects = await db.getAllProjects();
+//     console.log(projects);
+//     res.render("index.ejs", { projects }); // Pass the projects array to the template);
+//   })
+//   .catch(next);
+// });
+
+// Route for Code Gallery Page
 app.get("/gallery", (req, res) => {
   console.log(projects);
   res.render("gallery.ejs", { projectArray: projects });
 });
 
+// Route for Inidividual Artwork Page
 app.get("/artwork/:id", (req, res) => {
   let id = parseInt(req.params.id, 10) - 1;
   if (id >= projects.length || id < 0) {
@@ -42,10 +51,22 @@ app.get("/artwork/:id", (req, res) => {
   res.render("artwork.ejs", { artwork: projects[id] });
 });
 
+// Route for Contact Page
 app.get("/contact", (req, res) => {
   res.render("contact.ejs");
 });
 
+// Route for About Page
+app.get("/about", (req, res) => {
+  res.render("about.ejs");
+});
+
+// Route for Temp Page
+app.get("/temp", (req, res) => {
+  res.render("temp.ejs");
+});
+
+// Route for Contact Form Submission
 app.post("/mail", async (req, res) => {
   await utils
   .sendMessage(req.body.sub, req.body.txt)
